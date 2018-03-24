@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+
+<head>
+<title>MegaBox Grid</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='grid_styles.css') }}">
+</head>
+
+<script>
+  var box_selected = 1;
+  var box_open = 0;
+  var totl_selected = 0;
+  var picked = new Array()
+  var terminator;
+
+
+  //manage items selected
+  function add_pick(item)
+  {
+      picked.push(item);
+      // imbed the current picks in the save form
+      var returnval = document.getElementById("picked");
+      // array.toString() returns a string as item1,item2,item3, ...
+      returnval.value = picked.toString()
+      totl_selected++;
+  }
+
+  function remove_pick(item)
+  {
+      found = -1;
+      for (i=0; i < picked.length; i++)
+      {
+          if (picked[i] == item)
+          {
+              found = i;
+              break;
+          }
+      }
+
+      if (found != -1)
+      {
+          picked.splice(found,1);
+          // imbed the current picks in the save form
+          var returnval = document.getElementById("picked");
+          // array.toString() returns a string as item1,item2,item3, ...
+          returnval.value = picked.toString()
+          totl_selected--;
+      }
+  }
+
+  //toggle selected boxes on/off
+  function toggle(obj) 
+  {
+      var select_limit = document.getElementById("select_limit").innerHTML;
+      if (obj.hasAttribute('box_selected')) 
+      {
+          var cur_state = obj.getAttribute('box_selected');
+          if ( cur_state == box_selected )
+          {
+            obj.style.backgroundColor = '#99bbff';
+            obj.setAttribute('box_selected',0);
+            obj.style.color = '#3366ff';
+            remove_pick(obj.name)
+          }
+          else if ( cur_state == box_open && totl_selected < select_limit )
+          {
+            obj.style.backgroundColor = '#00e600';
+            obj.style.color = '#000000';
+            obj.setAttribute('box_selected',1);
+            add_pick(obj.name)
+          }
+      }
+      else if ( totl_selected < select_limit )
+      {
+        obj.setAttribute('box_selected',1)
+        obj.style.backgroundColor = '#00e600';
+        obj.style.color = '#000000';
+        add_pick(obj.name)
+      }
+
+  }
+
+  //unlock the grid page after extended period of time
+  //in grid_init - set a timer to 3 minutes
+  function release_grid()
+  {
+      document.getElementById('saver').click();
+  }
+
+  //just turn off the need to submit
+  //page has already been saved
+  function leave()
+  {
+      clearTimeout(terminator);
+  }
+ 
+
+  // disable choosen boxes, highlight currnet choson and available 
+  function grid_init()
+  {
+      var current_user = document.getElementById("current_user").innerHTML;
+      var frozen = parseInt(document.getElementById("frozen").innerHTML);
+
+      if ( frozen == 0 )
+      {
+          document.getElementById("info").style.visibility = 'visible'; 
+      }
+      else
+      {
+          document.getElementById("saver").value = "BACK";
+      }
+
+      for (i=1; i <= 100; i++ )
+      {
+          var box = document.getElementById("box_" + i);
+          if (box.hasAttribute('box_selected'))
+          {
+              continue;
+          }
+
+          box.disabled = true;
+
+          if (frozen == 0 && box.value == "null")
+          {
+              box.value = i;
+              box.backgroundColor= '#99bbff';
+              box.style.color = '#3366ff';
+              box.disabled = false;
+              box.setAttribute('box_selected',0);
+          }
+          else if (box.value == current_user )
+          {
+              box.value = i; 
+              box.style.backgroundColor = '#00e600';
+              //box.style.color = '#FFFFFF';
+              box.style.color = '#000000';
+              if (frozen == 0)
+              {
+                  box.disabled = false;
+              }
+              box.setAttribute('box_selected',1);
+              add_pick(box.name)
+          }
+          else 
+          {
+              if (box.value.length > 8)
+              {
+                  var c = box.value;
+                  box.value = c.slice(0,7) + "**";
+              }
+
+              box.style.backgroundColor = '#4B79A1';
+              box.style.color = '#FFFFFF';
+              box.style.fontSize = '14px';
+              box.setAttribute('box_selected',1);
+          }
+      }
+
+
+      // blank out score markers if not frozen
+      // used buttons - was easier to center text
+      for (j = 0; j < 10; j++)
+      {
+          
+          var home = document.getElementById("home_" + j);
+          var vstr = document.getElementById("vstr_" + j);
+
+          if (home.disabled == true)
+          {
+              //no need going thru this all over again
+              break;
+          }
+
+          home.disabled = true;
+          vstr.disabled = true;
+
+          //numbers haven't been gernerated yet
+          if (home.value == "nan" || frozen == 0)
+          {
+              home.value = ".";
+          }
+
+          if (vstr.value == "nan" || frozen == 0)
+          {
+              vstr.value = ".";
+          }
+      }
+
+      //release the grid after 3 minutes
+      terminator = setTimeout(release_grid,180000);
+
+  }
+
+  function vanish()
+  { 
+      document.getElementById("info").style.visibility = 'hidden'; 
+  }
+
+</script>
+
+<body>
+
+
+<div id="grid_div">
+
+    <form id='save_form' name='save_form' action='/save_submit' method='post'>
+      <input id="saver" type="submit" name="save_button" value="SAVE" onclick='leave()'>
+      <input id="picked" type="hidden" value="" name="picked">
+      <input id="my_user" type="hidden" value={{ current_user }} name="current_user">
+    </form>
+
+  <!-- create grid buttons -->
+  <!-- box = (id/name,value), i.e.('box_1',userid1) -->
+   {% for box in boxes %}
+    <input id={{ box[0] }} type="button" class="box_button" name={{ box[0] }} value={{ box[1] }} onclick='toggle(this)' > 
+   {% endfor %}
+   <!-- home scores row labels  score = (id,value) i.e. ('home_0',9) -->
+    {% for score in home_digits %}
+    <input id={{ score[0] }} type="button" class="home" name={{ score[0] }} value= {{ score[1] }} >
+    {% endfor %}
+   <!-- visitor scores column labels, i.e. (vstr_0, 4) -->
+    {% for score in vstr_digits %}
+    <input id={{ score[0] }} type="button" class="visitor" name={{ score[0] }} value= {{ score[1] }} >
+    {% endfor %}
+
+
+</div>
+
+<div>
+
+  <div id="title_home">
+      <p>HOME</p>
+  </div>
+  <div id="title_vstr">
+      <p>VISITOR</p>
+  </div>
+
+  <div id="info" onclick="vanish()">
+    <p>Click: To Select Box,  &nbsp; ReClick: To UnSelect Box<br>
+      <br>Light Blue: &nbsp; Available
+      <br>Green:  &nbsp;  &nbsp;  &nbsp; &nbsp;Your Pick 
+      <br>Dark Blue:  &nbsp;  &nbsp;Unavailable</p>
+  </div>
+
+</div>
+
+
+
+
+<div id='passed_values'>
+  <!-- stores passed values from login -->
+  <!-- passed from SERVER to CLIENT -->
+        <p class="user_details" id="select_limit">{{ select_limit }}</p>
+        <p class="user_details" id="current_user">{{ current_user }}</p>
+        <p class="user_details" id="frozen">{{ frozen }}</p>
+</div>
+
+
+</body>
+
+<script>
+  grid_init();
+</script>
+
+</html>

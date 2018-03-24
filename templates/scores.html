@@ -1,0 +1,762 @@
+<html>
+<head>
+<style>
+
+.mydiv
+{
+  position: relative;
+  height: 2150px;
+   width: 1235px;
+   border: 1px solid black;
+   border-radius: 15px;
+   top:10px;
+   left:40px;
+   background: #4B79A1;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  
+   background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.user_details {
+    visibility: hidden;
+}
+
+    #title
+    {
+        position:absolute;
+        top:-30px;
+        left:450px;
+        font-family: 'Rockwell';
+        font-size: 40px;
+        width: 300px;
+        height: 30px;
+        color:white;
+        text-align: center;
+        padding-top:5px;
+    }
+
+    .ibutton
+    {
+       position: absolute;
+       background-color: #4080bf; 
+       color: white;
+       border: 1px solid black;
+       text-decoration: none;
+       font-size: 15px;
+       cursor: pointer;
+       -webkit-transition-duration: 0.4s; /* Safari */
+       transition-duration: 0.4s;
+       width: 120px;
+       height: 30px;
+       border-radius: 14px;
+    }
+
+
+    .ibutton:hover {
+       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    #back 
+    {
+       top: 40px;
+       right: 50px;
+    }
+
+
+.round
+{
+    /* width: 120%; */
+    font-size: 30px;
+    font-family: "Rockwell";
+    position: absolute;
+    background-color: none; 
+    color: white;
+   width: 600px;
+   height: 60px;
+   text-align: left;
+   padding-bottom: 10px;
+   padding-left: 20px;
+}
+
+
+#rd1
+{
+    top: 10px;
+    left: 20px;
+}
+
+#rd2
+{
+    top: 800px;
+    left: 20px;
+}
+#rd3
+{
+    top: 1230px;
+    left: 20px;
+}
+
+#rd4
+{
+    top: 1480px;
+    left: 20px;
+}
+#rd5
+{
+    top: 1740px;
+    left: 20px;
+}
+
+#rd6
+{
+    top: 1900px;
+    left: 20px;
+}
+
+
+.box_score
+{
+   position: absolute;
+   font-family: "Verdana";
+   font-size: 12px;
+   border: 1px solid #00264d;
+   height: 80px;
+   width: 290px;
+   text-align: center;
+   border-radius: 10px;
+}
+
+
+.vstr
+{
+  background-color: #638fb6;
+  border: 1px solid #396a93;
+  height: 30px;
+  width: 120px;
+  color:  white;
+  font-size: 15px;
+  /* text-shadow: 1px 1px black; */
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.home
+{
+  background-color: #638fb6;
+  border: 1px solid #396a93;
+  height: 30px;
+  width: 120px;
+  color:  white;
+  font-size: 15px;
+  /*text-shadow: 1px 1px black*/
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid black;
+}
+
+.home_pts
+{
+  background-color: #638fb6;
+  border: 1px solid #396a93;
+  height: 30px;
+  width: 50px;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+   border-radius: 6px;
+    border: 1px solid black;
+}
+
+.vstr_pts
+{
+  background-color: #638fb6;
+  border: 1px solid #396a93;
+  height: 30px;
+  width: 50px;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+   border-radius: 6px;
+    border: 1px solid black;
+}
+
+.box_score .vstr
+{
+  position: absolute;
+  top:7;
+  left:10;
+}
+.box_score .home
+{
+  position: absolute;
+  top:42;
+  left:10;
+}
+
+.box_score .vstr_pts
+{
+  position: absolute;
+  top:7;
+  left:135;
+}
+
+.box_score .home_pts
+{
+  position: absolute;
+  top:42;
+  left:135;
+}
+
+/*test - the winning output
+#who_1
+{
+  background-color: #00e600; 
+  color: black;
+  font-size: 30px;
+  font-family: "Rockwell";
+}
+*/
+
+/* will show be green if the user won that game */
+.winner
+{
+  position: absolute;
+  background-color: #4B79A1;
+  height: 65px;
+  width: 90px;
+  color: white;
+   border-radius: 6px;
+    border: 1px solid black;
+}
+
+.box_score .winner
+{
+  top: 7;
+  left: 190;
+}
+
+
+#box_1
+{
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+#box_2
+{
+  position: absolute;
+  top: 100px;
+  left: 320px;
+}
+#box_3
+{
+  position: absolute;
+  top: 100px;
+  left: 620px;
+}
+#box_4
+{
+  position: absolute;
+  top: 100px;
+  left: 920px;
+}
+#box_5
+{
+  position: absolute;
+  top: 190px;
+  left: 20px;
+}
+#box_6
+{
+  position: absolute;
+  top: 190px;
+  left: 320px;
+}
+#box_7
+{
+  position: absolute;
+  top: 190px;
+  left: 620px;
+}
+#box_8
+{
+  position: absolute;
+  top: 190px;
+  left: 920px;
+}
+#box_9
+{
+  position: absolute;
+  top: 280px;
+  left: 20px;
+}
+#box_10
+{
+  position: absolute;
+  top: 280px;
+  left: 320px;
+}
+#box_11
+{
+  position: absolute;
+  top: 280px;
+  left: 620px;
+}
+#box_12
+{
+  position: absolute;
+  top: 280px;
+  left: 920px;
+}
+#box_13
+{
+  position: absolute;
+  top: 370px;
+  left: 20px;
+}
+#box_14
+{
+  position: absolute;
+  top: 370px;
+  left: 320px;
+}
+#box_15
+{
+  position: absolute;
+  top: 370px;
+  left: 620px;
+}
+#box_16
+{
+  position: absolute;
+  top: 370px;
+  left: 920px;
+}
+#box_17
+{
+  position: absolute;
+  top: 460px;
+  left: 20px;
+}
+#box_18
+{
+  position: absolute;
+  top: 460px;
+  left: 320px;
+}
+#box_19
+{
+  position: absolute;
+  top: 460px;
+  left: 620px;
+}
+#box_20
+{
+  position: absolute;
+  top: 460px;
+  left: 920px;
+}
+#box_21
+{
+  position: absolute;
+  top: 550px;
+  left: 20px;
+}
+#box_22
+{
+  position: absolute;
+  top: 550px;
+  left: 320px;
+}
+#box_23
+{
+  position: absolute;
+  top: 550px;
+  left: 620px;
+}
+#box_24
+{
+  position: absolute;
+  top: 550px;
+  left: 920px;
+}
+#box_25
+{
+  position: absolute;
+  top: 640px;
+  left: 20px;
+}
+#box_26
+{
+  position: absolute;
+  top: 640px;
+  left: 320px;
+}
+#box_27
+{
+  position: absolute;
+  top: 640px;
+  left: 620px;
+}
+#box_28
+{
+  position: absolute;
+  top: 640px;
+  left: 920px;
+}
+#box_29
+{
+  position: absolute;
+  top: 730px;
+  left: 20px;
+}
+#box_30
+{
+  position: absolute;
+  top: 730px;
+  left: 320px;
+}
+#box_31
+{
+  position: absolute;
+  top: 730px;
+  left: 620px;
+}
+#box_32
+{
+  position: absolute;
+  top: 730px;
+  left: 920px;
+}
+#box_33
+{
+  position: absolute;
+  top: 890px;
+  left: 20px;
+}
+#box_34
+{
+  position: absolute;
+  top: 890px;
+  left: 320px;
+}
+#box_35
+{
+  position: absolute;
+  top: 890px;
+  left: 620px;
+}
+#box_36
+{
+  position: absolute;
+  top: 890px;
+  left: 920px;
+}
+#box_37
+{
+  position: absolute;
+  top: 980px;
+  left: 20px;
+}
+#box_38
+{
+  position: absolute;
+  top: 980px;
+  left: 320px;
+}
+#box_39
+{
+  position: absolute;
+  top: 980px;
+  left: 620px;
+}
+#box_40
+{
+  position: absolute;
+  top: 980px;
+  left: 920px;
+}
+#box_41
+{
+  position: absolute;
+  top: 1070px;
+  left: 20px;
+}
+#box_42
+{
+  position: absolute;
+  top: 1070px;
+  left: 320px;
+}
+#box_43
+{
+  position: absolute;
+  top: 1070px;
+  left: 620px;
+}
+#box_44
+{
+  position: absolute;
+  top: 1070px;
+  left: 920px;
+}
+#box_45
+{
+  position: absolute;
+  top: 1160px;
+  left: 20px;
+}
+#box_46
+{
+  position: absolute;
+  top: 1160px;
+  left: 320px;
+}
+#box_47
+{
+  position: absolute;
+  top: 1160px;
+  left: 620px;
+}
+#box_48
+{
+  position: absolute;
+  top: 1160px;
+  left: 920px;
+}
+#box_49
+{
+  position: absolute;
+  top: 1320px;
+  left: 20px;
+}
+#box_50
+{
+  position: absolute;
+  top: 1320px;
+  left: 320px;
+}
+#box_51
+{
+  position: absolute;
+  top: 1320px;
+  left: 620px;
+}
+#box_52
+{
+  position: absolute;
+  top: 1320px;
+  left: 920px;
+}
+#box_53
+{
+  position: absolute;
+  top: 1410px;
+  left: 20px;
+}
+#box_54
+{
+  position: absolute;
+  top: 1410px;
+  left: 320px;
+}
+#box_55
+{
+  position: absolute;
+  top: 1410px;
+  left: 620px;
+}
+#box_56
+{
+  position: absolute;
+  top: 1410px;
+  left: 920px;
+}
+#box_57
+{
+  position: absolute;
+  top: 1570px;
+  left: 20px;
+}
+#box_58
+{
+  position: absolute;
+  top: 1570px;
+  left: 320px;
+}
+#box_59
+{
+  position: absolute;
+  top: 1660px;
+  left: 20px;
+}
+#box_60
+{
+  position: absolute;
+  top: 1660px;
+  left: 320px;
+}
+#box_61
+{
+  position: absolute;
+  top: 1820px;
+  left: 20px;
+}
+#box_62
+{
+  position: absolute;
+  top: 1820px;
+  left: 320px;
+}
+#box_63
+{
+  position: absolute;
+  top: 1980px;
+  left: 20px;
+}
+
+
+
+   
+</style>
+<script>
+
+  // takes the winners string:
+  // xjcarter.serevino,kityy69....None,None 
+  function mark_winners()
+  {
+      var current_user = document.getElementById("current_user").innerHTML;
+      var winners_str = document.getElementById("winners").innerHTML; 
+      var which_str = document.getElementById("which").innerHTML; 
+      var winners = winners_str.split(','); 
+      var which = which_str.split(','); 
+
+
+      for (i=0; i<64; i++)
+      {
+          var k = i+1
+          var who = document.getElementById("who_"+k);
+          var home = document.getElementById("home_"+k);
+          var vstr = document.getElementById("vstr_"+k);
+          var hpts = document.getElementById("hh_"+k);
+          var vpts = document.getElementById("vv_"+k);
+
+          //show winning userids
+          if ( current_user == winners[i])
+          {
+              who.value='WIN';
+              who.style.color = 'black';
+              who.style.backgroundColor = '#00e600';
+              who.style.fontSize = '30px';
+          }
+          else
+          {
+              if ( winners[i] != 'null' )
+              {
+                  who.value=winners[i];
+                  who.style.color = '#FFFFFF';
+                  who.style.backgroundColor = '#4B79A1';
+                  who.style.fontSize = '16px';
+              }
+          }
+
+          //highlight winning team
+          // by default the visitor is highlighted
+          if ( which[i] == 'H')
+          {
+              home.style.color = '#ffffff';
+              home.style.backgroundColor = '#4080bf';
+
+              hpts.style.color = '#ffffff';
+              hpts.style.backgroundColor = '#4080bf';
+
+              vstr.style.color = 'black';
+              vstr.style.backgroundColor = '#638fb6';
+
+              vpts.style.color = 'black';
+              vpts.style.backgroundColor = '#638fb6';
+          }
+
+          if ( which[i] == 'V')
+          {
+              vstr.style.color = '#ffffff';
+              vstr.style.backgroundColor = '#4080bf';
+
+              vpts.style.color = '#ffffff';
+              vpts.style.backgroundColor = '#4080bf';
+
+              home.style.color = 'black';
+              home.style.backgroundColor = '#638fb6';
+
+              hpts.style.color = 'black';
+              hpts.style.backgroundColor = '#638fb6';
+          }
+
+
+      }
+
+  }
+
+</script>
+</head>
+
+<body>
+<div class="mydiv">
+
+  <form id='exit_form' name='exit_form' action='/show_menu' method='post'>
+    <input id="back" class= 'ibutton' type="submit" name="back_button" value="BACK">
+    <input id="my_user" type="hidden" value={{ current_user }} name="current_user">
+  </form>
+
+  <div id='title'>
+      <p>SCOREBOARD</p>
+  </div>
+
+  {% for game in games %}
+  <div class='box_score' id={{ game[0] }} >
+      <input type='button' class='vstr' id={{ game[1] }} name= {{ game[1] }} value={{ game[6] }}>
+      <input type='button' class='home' id={{ game[2] }} name={{ game[2] }} value={{ game[7] }}>
+      <input type='button' class='vstr_pts' id={{ game[3] }} name={{ game[3] }} value={{ game[8] }}>
+      <input type='button' class='home_pts' id={{ game[4] }} name={{ game[4] }} value={{ game[9] }}>
+      <input type='button' class='winner' id={{ game[5] }} name={{ game[5] }} value=''>
+  </div>
+  {% endfor %}
+
+ 
+  <div class='round' id='rd1'>
+    <p>ROUND 1</p>
+  </div>
+  <div class='round' id='rd2'>
+    <p>ROUND 2</p>
+  </div>
+  <div class='round' id='rd3'>
+    <p>ROUND 3</p>
+  </div>
+  <div class='round' id='rd4'>
+    <p>ROUND 4</p>
+  </div>
+  <div class='round' id='rd5'>
+    <p>ROUND 5</p>
+  </div>
+  <div class='round' id='rd6'>
+    <p>ROUND 6</p>
+  </div>
+
+</div>
+
+
+    <div id='passed_values'>
+  <!-- stores passed values from login -->
+  <!-- passed from SERVER to CLIENT -->
+        <p class="user_details" id="current_user">{{ current_user }}</p>
+        <p class="user_details" id="winners">{{ winners }}</p>
+        <p class="user_details" id="which">{{ which }}</p>
+    </div>
+
+
+</body>
+<script>
+    mark_winners();
+</script>
+</html>
+

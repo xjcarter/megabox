@@ -1,0 +1,1167 @@
+<html>
+<head>
+<style>
+
+.mydiv
+{
+  position: relative;
+  height: 2550px;
+   width: 1235px;
+   border: 1px solid black;
+   border-radius: 15px;
+   top:10px;
+   left:10px;
+   background: #4B79A1;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  
+   background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+    #title
+    {
+        position:absolute;
+        top:-30px;
+        left:450px;
+        font-family: 'Rockwell';
+        font-size: 50px;
+        width: 300px;
+        height: 30px;
+        color:white;
+        text-align: center;
+        padding-top:5px;
+    }
+
+        .ibutton
+    {
+       position: absolute;
+       background-color: #4080bf; 
+       color: white;
+       border: 1px solid black;
+       text-decoration: none;
+       font-size: 15px;
+       cursor: pointer;
+       -webkit-transition-duration: 0.4s; /* Safari */
+       transition-duration: 0.4s;
+       width: 90px;
+       height: 30px;
+       border-radius: 12px;
+    }
+
+
+    .ibutton:hover {
+       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    #back 
+    {
+       top: 40px;
+       right: 50px;
+    }
+
+.round
+{
+    /* width: 120%; */
+    font-size: 30px;
+    font-family: "Rockwell";
+    position: absolute;
+    background-color: #4B79A1; 
+    color: white;
+    background: none;
+   width: 600px;
+   height: 60px;
+   text-align: left;
+   padding-bottom: 10px;
+   padding-left: 20px;
+}
+
+
+#rd1
+{
+    top: 10px;
+    left: 20px;
+}
+
+#rd2
+{
+    top: 890px;
+    left: 20px;
+}
+#rd3
+{
+    top: 1400px;
+    left: 20px;
+}
+
+#rd4
+{
+    top: 1730px;
+    left: 20px;
+}
+#rd5
+{
+    top: 2060px;
+    left: 20px;
+}
+
+#rd6
+{
+    top: 2300px;
+    left: 20px;
+}
+
+
+.box_score
+{
+   position: absolute;
+   font-family: "Verdana";
+   font-size: 12px;
+   border: 1px solid #00264d;
+   height: 80px;
+   width: 290px;
+   text-align: center;
+   border-radius: 10px;
+}
+
+
+.vstr
+{
+  background-color: #4080bf;
+  border: 1px solid #396a93;
+  height: 30px;
+  width: 120px;
+  color:  white;
+  font-size: 15px;
+  text-shadow: 1px 1px black;
+  text-align: center;
+   border-radius: 6px;
+    border: 1px solid black;
+}
+
+.home
+{
+  background-color: #4da6ff;
+  border: 1px solid #396a93;
+  height: 30px;
+  width: 120px;
+  color:  #4B79A1;
+  font-size: 15px;
+  text-shadow: 1px 1px black;
+  text-align: center;
+   border-radius: 6px;
+    border: 1px solid black;
+}
+
+.home_pts
+{
+  background-color: #4da6ff;
+  border: 1px solid #396a93;
+  height: 30px;
+  width: 50px;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+   border-radius: 6px;
+    border: 1px solid black;
+}
+
+.vstr_pts
+{
+  background-color: #4080bf;
+  border: 1px solid #396a93;
+  height: 30px;
+  width: 50px;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px black;
+  font-size: 15px;
+   border-radius: 6px;
+    border: 1px solid black;
+}
+
+.box_score .vstr
+{
+  position: absolute;
+  top:7;
+  left:10;
+}
+.box_score .home
+{
+  position: absolute;
+  top:42;
+  left:10;
+}
+
+.box_score .vstr_pts
+{
+  position: absolute;
+  top:7;
+  left:135;
+}
+
+.box_score .home_pts
+{
+  position: absolute;
+  top:42;
+  left:135;
+}
+
+/*test - the winning output */
+#who_1
+{
+  background-color: #00e600; 
+  color: black;
+  font-size: 30px;
+  font-family: "Rockwell";
+}
+
+/* will show be green if the user won that game */
+.winner
+{
+  position: absolute;
+  background-color: #4B79A1;
+  height: 65px;
+  width: 90px;
+  color: white;
+   border-radius: 6px;
+    border: 1px solid black;
+}
+
+.box_score .winner
+{
+  top: 7;
+  left: 190;
+}
+
+
+#box_1
+{
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+#box_2
+{
+  position: absolute;
+  top: 100px;
+  left: 320px;
+}
+#box_3
+{
+  position: absolute;
+  top: 100px;
+  left: 620px;
+}
+#box_4
+{
+  position: absolute;
+  top: 100px;
+  left: 920px;
+}
+#box_5
+{
+  position: absolute;
+  top: 190px;
+  left: 20px;
+}
+#box_6
+{
+  position: absolute;
+  top: 190px;
+  left: 320px;
+}
+#box_7
+{
+  position: absolute;
+  top: 190px;
+  left: 620px;
+}
+#box_8
+{
+  position: absolute;
+  top: 190px;
+  left: 920px;
+}
+#box_9
+{
+  position: absolute;
+  top: 280px;
+  left: 20px;
+}
+#box_10
+{
+  position: absolute;
+  top: 280px;
+  left: 320px;
+}
+#box_11
+{
+  position: absolute;
+  top: 280px;
+  left: 620px;
+}
+#box_12
+{
+  position: absolute;
+  top: 280px;
+  left: 920px;
+}
+#box_13
+{
+  position: absolute;
+  top: 370px;
+  left: 20px;
+}
+#box_14
+{
+  position: absolute;
+  top: 370px;
+  left: 320px;
+}
+#box_15
+{
+  position: absolute;
+  top: 370px;
+  left: 620px;
+}
+#box_16
+{
+  position: absolute;
+  top: 370px;
+  left: 920px;
+}
+#box_17
+{
+  position: absolute;
+  top: 460px;
+  left: 20px;
+}
+#box_18
+{
+  position: absolute;
+  top: 460px;
+  left: 320px;
+}
+#box_19
+{
+  position: absolute;
+  top: 460px;
+  left: 620px;
+}
+#box_20
+{
+  position: absolute;
+  top: 460px;
+  left: 920px;
+}
+#box_21
+{
+  position: absolute;
+  top: 550px;
+  left: 20px;
+}
+#box_22
+{
+  position: absolute;
+  top: 550px;
+  left: 320px;
+}
+#box_23
+{
+  position: absolute;
+  top: 550px;
+  left: 620px;
+}
+#box_24
+{
+  position: absolute;
+  top: 550px;
+  left: 920px;
+}
+#box_25
+{
+  position: absolute;
+  top: 640px;
+  left: 20px;
+}
+#box_26
+{
+  position: absolute;
+  top: 640px;
+  left: 320px;
+}
+#box_27
+{
+  position: absolute;
+  top: 640px;
+  left: 620px;
+}
+#box_28
+{
+  position: absolute;
+  top: 640px;
+  left: 920px;
+}
+#box_29
+{
+  position: absolute;
+  top: 730px;
+  left: 20px;
+}
+#box_30
+{
+  position: absolute;
+  top: 730px;
+  left: 320px;
+}
+#box_31
+{
+  position: absolute;
+  top: 730px;
+  left: 620px;
+}
+#box_32
+{
+  position: absolute;
+  top: 730px;
+  left: 920px;
+}
+#box_33
+{
+  position: absolute;
+  top: 970px;
+  left: 20px;
+}
+#box_34
+{
+  position: absolute;
+  top: 970px;
+  left: 320px;
+}
+#box_35
+{
+  position: absolute;
+  top: 970px;
+  left: 620px;
+}
+#box_36
+{
+  position: absolute;
+  top: 970px;
+  left: 920px;
+}
+#box_37
+{
+  position: absolute;
+  top: 1060px;
+  left: 20px;
+}
+#box_38
+{
+  position: absolute;
+  top: 1060px;
+  left: 320px;
+}
+#box_39
+{
+  position: absolute;
+  top: 1060px;
+  left: 620px;
+}
+#box_40
+{
+  position: absolute;
+  top: 1060px;
+  left: 920px;
+}
+#box_41
+{
+  position: absolute;
+  top: 1150px;
+  left: 20px;
+}
+#box_42
+{
+  position: absolute;
+  top: 1150px;
+  left: 320px;
+}
+#box_43
+{
+  position: absolute;
+  top: 1150px;
+  left: 620px;
+}
+#box_44
+{
+  position: absolute;
+  top: 1150px;
+  left: 920px;
+}
+#box_45
+{
+  position: absolute;
+  top: 1240px;
+  left: 20px;
+}
+#box_46
+{
+  position: absolute;
+  top: 1240px;
+  left: 320px;
+}
+#box_47
+{
+  position: absolute;
+  top: 1240px;
+  left: 620px;
+}
+#box_48
+{
+  position: absolute;
+  top: 1240px;
+  left: 920px;
+}
+#box_49
+{
+  position: absolute;
+  top: 1480px;
+  left: 20px;
+}
+#box_50
+{
+  position: absolute;
+  top: 1480px;
+  left: 320px;
+}
+#box_51
+{
+  position: absolute;
+  top: 1480px;
+  left: 620px;
+}
+#box_52
+{
+  position: absolute;
+  top: 1480px;
+  left: 920px;
+}
+#box_53
+{
+  position: absolute;
+  top: 1570px;
+  left: 20px;
+}
+#box_54
+{
+  position: absolute;
+  top: 1570px;
+  left: 320px;
+}
+#box_55
+{
+  position: absolute;
+  top: 1570px;
+  left: 620px;
+}
+#box_56
+{
+  position: absolute;
+  top: 1570px;
+  left: 920px;
+}
+#box_57
+{
+  position: absolute;
+  top: 1810px;
+  left: 20px;
+}
+#box_58
+{
+  position: absolute;
+  top: 1810px;
+  left: 320px;
+}
+#box_59
+{
+  position: absolute;
+  top: 1900px;
+  left: 20px;
+}
+#box_60
+{
+  position: absolute;
+  top: 1900px;
+  left: 320px;
+}
+#box_61
+{
+  position: absolute;
+  top: 2140px;
+  left: 20px;
+}
+#box_62
+{
+  position: absolute;
+  top: 2140px;
+  left: 320px;
+}
+#box_63
+{
+  position: absolute;
+  top: 2380px;
+  left: 20px;
+}
+
+   
+</style>
+</head>
+
+<body>
+
+<div class="mydiv">
+
+    <form id='exit_form' name='exit_form' action='/show_menu' method='get'>
+    <input id="back" class= 'ibutton' type="submit" name="back_button" value="<< BACK">
+  </form>
+
+  <div id='title'>
+      <p>SCOREBOARD</p>
+  </div>
+
+  <div class='box_score' id='box_1'>
+      <input type='button' class='vstr' id='vstr_1' name='vstr_1' value='OKLAHOMAX'>
+      <input type='button' class='home' id='home_1' name='home_1' value='PURDUE'>
+      <input type='button' class='vstr_pts' id='vv_1' name='vv_1' value=89>
+      <input type='button' class='home_pts' id='hh_1' name='hh_1' value=102>
+      <input type='button' class='winner' id='who_1' name='who_1' value='WIN'>
+  </div>
+
+  <!--div class='box_score' id='box_1'>
+      <input type='button' class='vstr' id='vstr_1' name='vstr_1' value=''>
+      <input type='button' class='home' id='home_1' name='home_1' value=''>
+      <input type='button' class='vstr_pts' id='vv_1' name='vv_1' value=''>
+      <input type='button' class='home_pts' id='hh_1' name='hh_1' value=''>
+      <input type='button' class='winner' id='who_1' name='who_1' value=''>
+  </div-->
+
+  <div class='box_score' id='box_2'>
+      <input type='button' class='vstr' id='vstr_2' name='vstr_2' value=''>
+      <input type='button' class='home' id='home_2' name='home_2' value=''>
+      <input type='button' class='vstr_pts' id='vv_2' name='vv_2' value=''>
+      <input type='button' class='home_pts' id='hh_2' name='hh_2' value=''>
+      <input type='button' class='winner' id='who_2' name='who_2' value=''>
+  </div>
+
+  <div class='box_score' id='box_3'>
+      <input type='button' class='vstr' id='vstr_3' name='vstr_3' value=''>
+      <input type='button' class='home' id='home_3' name='home_3' value=''>
+      <input type='button' class='vstr_pts' id='vv_3' name='vv_3' value=''>
+      <input type='button' class='home_pts' id='hh_3' name='hh_3' value=''>
+      <input type='button' class='winner' id='who_3' name='who_3' value=''>
+  </div>
+
+  <div class='box_score' id='box_4'>
+      <input type='button' class='vstr' id='vstr_4' name='vstr_4' value=''>
+      <input type='button' class='home' id='home_4' name='home_4' value=''>
+      <input type='button' class='vstr_pts' id='vv_4' name='vv_4' value=''>
+      <input type='button' class='home_pts' id='hh_4' name='hh_4' value=''>
+      <input type='button' class='winner' id='who_4' name='who_4' value=''>
+  </div>
+
+  <div class='box_score' id='box_5'>
+      <input type='button' class='vstr' id='vstr_5' name='vstr_5' value=''>
+      <input type='button' class='home' id='home_5' name='home_5' value=''>
+      <input type='button' class='vstr_pts' id='vv_5' name='vv_5' value=''>
+      <input type='button' class='home_pts' id='hh_5' name='hh_5' value=''>
+      <input type='button' class='winner' id='who_5' name='who_5' value=''>
+  </div>
+
+  <div class='box_score' id='box_6'>
+      <input type='button' class='vstr' id='vstr_6' name='vstr_6' value=''>
+      <input type='button' class='home' id='home_6' name='home_6' value=''>
+      <input type='button' class='vstr_pts' id='vv_6' name='vv_6' value=''>
+      <input type='button' class='home_pts' id='hh_6' name='hh_6' value=''>
+      <input type='button' class='winner' id='who_6' name='who_6' value=''>
+  </div>
+
+  <div class='box_score' id='box_7'>
+      <input type='button' class='vstr' id='vstr_7' name='vstr_7' value=''>
+      <input type='button' class='home' id='home_7' name='home_7' value=''>
+      <input type='button' class='vstr_pts' id='vv_7' name='vv_7' value=''>
+      <input type='button' class='home_pts' id='hh_7' name='hh_7' value=''>
+      <input type='button' class='winner' id='who_7' name='who_7' value=''>
+  </div>
+
+  <div class='box_score' id='box_8'>
+      <input type='button' class='vstr' id='vstr_8' name='vstr_8' value=''>
+      <input type='button' class='home' id='home_8' name='home_8' value=''>
+      <input type='button' class='vstr_pts' id='vv_8' name='vv_8' value=''>
+      <input type='button' class='home_pts' id='hh_8' name='hh_8' value=''>
+      <input type='button' class='winner' id='who_8' name='who_8' value=''>
+  </div>
+
+  <div class='box_score' id='box_9'>
+      <input type='button' class='vstr' id='vstr_9' name='vstr_9' value=''>
+      <input type='button' class='home' id='home_9' name='home_9' value=''>
+      <input type='button' class='vstr_pts' id='vv_9' name='vv_9' value=''>
+      <input type='button' class='home_pts' id='hh_9' name='hh_9' value=''>
+      <input type='button' class='winner' id='who_9' name='who_9' value=''>
+  </div>
+
+  <div class='box_score' id='box_10'>
+      <input type='button' class='vstr' id='vstr_10' name='vstr_10' value=''>
+      <input type='button' class='home' id='home_10' name='home_10' value=''>
+      <input type='button' class='vstr_pts' id='vv_10' name='vv_10' value=''>
+      <input type='button' class='home_pts' id='hh_10' name='hh_10' value=''>
+      <input type='button' class='winner' id='who_10' name='who_10' value=''>
+  </div>
+
+  <div class='box_score' id='box_11'>
+      <input type='button' class='vstr' id='vstr_11' name='vstr_11' value=''>
+      <input type='button' class='home' id='home_11' name='home_11' value=''>
+      <input type='button' class='vstr_pts' id='vv_11' name='vv_11' value=''>
+      <input type='button' class='home_pts' id='hh_11' name='hh_11' value=''>
+      <input type='button' class='winner' id='who_11' name='who_11' value=''>
+  </div>
+
+  <div class='box_score' id='box_12'>
+      <input type='button' class='vstr' id='vstr_12' name='vstr_12' value=''>
+      <input type='button' class='home' id='home_12' name='home_12' value=''>
+      <input type='button' class='vstr_pts' id='vv_12' name='vv_12' value=''>
+      <input type='button' class='home_pts' id='hh_12' name='hh_12' value=''>
+      <input type='button' class='winner' id='who_12' name='who_12' value=''>
+  </div>
+
+  <div class='box_score' id='box_13'>
+      <input type='button' class='vstr' id='vstr_13' name='vstr_13' value=''>
+      <input type='button' class='home' id='home_13' name='home_13' value=''>
+      <input type='button' class='vstr_pts' id='vv_13' name='vv_13' value=''>
+      <input type='button' class='home_pts' id='hh_13' name='hh_13' value=''>
+      <input type='button' class='winner' id='who_13' name='who_13' value=''>
+  </div>
+
+  <div class='box_score' id='box_14'>
+      <input type='button' class='vstr' id='vstr_14' name='vstr_14' value=''>
+      <input type='button' class='home' id='home_14' name='home_14' value=''>
+      <input type='button' class='vstr_pts' id='vv_14' name='vv_14' value=''>
+      <input type='button' class='home_pts' id='hh_14' name='hh_14' value=''>
+      <input type='button' class='winner' id='who_14' name='who_14' value=''>
+  </div>
+
+  <div class='box_score' id='box_15'>
+      <input type='button' class='vstr' id='vstr_15' name='vstr_15' value=''>
+      <input type='button' class='home' id='home_15' name='home_15' value=''>
+      <input type='button' class='vstr_pts' id='vv_15' name='vv_15' value=''>
+      <input type='button' class='home_pts' id='hh_15' name='hh_15' value=''>
+      <input type='button' class='winner' id='who_15' name='who_15' value=''>
+  </div>
+
+  <div class='box_score' id='box_16'>
+      <input type='button' class='vstr' id='vstr_16' name='vstr_16' value=''>
+      <input type='button' class='home' id='home_16' name='home_16' value=''>
+      <input type='button' class='vstr_pts' id='vv_16' name='vv_16' value=''>
+      <input type='button' class='home_pts' id='hh_16' name='hh_16' value=''>
+      <input type='button' class='winner' id='who_16' name='who_16' value=''>
+  </div>
+
+  <div class='box_score' id='box_17'>
+      <input type='button' class='vstr' id='vstr_17' name='vstr_17' value=''>
+      <input type='button' class='home' id='home_17' name='home_17' value=''>
+      <input type='button' class='vstr_pts' id='vv_17' name='vv_17' value=''>
+      <input type='button' class='home_pts' id='hh_17' name='hh_17' value=''>
+      <input type='button' class='winner' id='who_17' name='who_17' value=''>
+  </div>
+
+  <div class='box_score' id='box_18'>
+      <input type='button' class='vstr' id='vstr_18' name='vstr_18' value=''>
+      <input type='button' class='home' id='home_18' name='home_18' value=''>
+      <input type='button' class='vstr_pts' id='vv_18' name='vv_18' value=''>
+      <input type='button' class='home_pts' id='hh_18' name='hh_18' value=''>
+      <input type='button' class='winner' id='who_18' name='who_18' value=''>
+  </div>
+
+  <div class='box_score' id='box_19'>
+      <input type='button' class='vstr' id='vstr_19' name='vstr_19' value=''>
+      <input type='button' class='home' id='home_19' name='home_19' value=''>
+      <input type='button' class='vstr_pts' id='vv_19' name='vv_19' value=''>
+      <input type='button' class='home_pts' id='hh_19' name='hh_19' value=''>
+      <input type='button' class='winner' id='who_19' name='who_19' value=''>
+  </div>
+
+  <div class='box_score' id='box_20'>
+      <input type='button' class='vstr' id='vstr_20' name='vstr_20' value=''>
+      <input type='button' class='home' id='home_20' name='home_20' value=''>
+      <input type='button' class='vstr_pts' id='vv_20' name='vv_20' value=''>
+      <input type='button' class='home_pts' id='hh_20' name='hh_20' value=''>
+      <input type='button' class='winner' id='who_20' name='who_20' value=''>
+  </div>
+
+  <div class='box_score' id='box_21'>
+      <input type='button' class='vstr' id='vstr_21' name='vstr_21' value=''>
+      <input type='button' class='home' id='home_21' name='home_21' value=''>
+      <input type='button' class='vstr_pts' id='vv_21' name='vv_21' value=''>
+      <input type='button' class='home_pts' id='hh_21' name='hh_21' value=''>
+      <input type='button' class='winner' id='who_21' name='who_21' value=''>
+  </div>
+
+  <div class='box_score' id='box_22'>
+      <input type='button' class='vstr' id='vstr_22' name='vstr_22' value=''>
+      <input type='button' class='home' id='home_22' name='home_22' value=''>
+      <input type='button' class='vstr_pts' id='vv_22' name='vv_22' value=''>
+      <input type='button' class='home_pts' id='hh_22' name='hh_22' value=''>
+      <input type='button' class='winner' id='who_22' name='who_22' value=''>
+  </div>
+
+  <div class='box_score' id='box_23'>
+      <input type='button' class='vstr' id='vstr_23' name='vstr_23' value=''>
+      <input type='button' class='home' id='home_23' name='home_23' value=''>
+      <input type='button' class='vstr_pts' id='vv_23' name='vv_23' value=''>
+      <input type='button' class='home_pts' id='hh_23' name='hh_23' value=''>
+      <input type='button' class='winner' id='who_23' name='who_23' value=''>
+  </div>
+
+  <div class='box_score' id='box_24'>
+      <input type='button' class='vstr' id='vstr_24' name='vstr_24' value=''>
+      <input type='button' class='home' id='home_24' name='home_24' value=''>
+      <input type='button' class='vstr_pts' id='vv_24' name='vv_24' value=''>
+      <input type='button' class='home_pts' id='hh_24' name='hh_24' value=''>
+      <input type='button' class='winner' id='who_24' name='who_24' value=''>
+  </div>
+
+  <div class='box_score' id='box_25'>
+      <input type='button' class='vstr' id='vstr_25' name='vstr_25' value=''>
+      <input type='button' class='home' id='home_25' name='home_25' value=''>
+      <input type='button' class='vstr_pts' id='vv_25' name='vv_25' value=''>
+      <input type='button' class='home_pts' id='hh_25' name='hh_25' value=''>
+      <input type='button' class='winner' id='who_25' name='who_25' value=''>
+  </div>
+
+  <div class='box_score' id='box_26'>
+      <input type='button' class='vstr' id='vstr_26' name='vstr_26' value=''>
+      <input type='button' class='home' id='home_26' name='home_26' value=''>
+      <input type='button' class='vstr_pts' id='vv_26' name='vv_26' value=''>
+      <input type='button' class='home_pts' id='hh_26' name='hh_26' value=''>
+      <input type='button' class='winner' id='who_26' name='who_26' value=''>
+  </div>
+
+  <div class='box_score' id='box_27'>
+      <input type='button' class='vstr' id='vstr_27' name='vstr_27' value=''>
+      <input type='button' class='home' id='home_27' name='home_27' value=''>
+      <input type='button' class='vstr_pts' id='vv_27' name='vv_27' value=''>
+      <input type='button' class='home_pts' id='hh_27' name='hh_27' value=''>
+      <input type='button' class='winner' id='who_27' name='who_27' value=''>
+  </div>
+
+  <div class='box_score' id='box_28'>
+      <input type='button' class='vstr' id='vstr_28' name='vstr_28' value=''>
+      <input type='button' class='home' id='home_28' name='home_28' value=''>
+      <input type='button' class='vstr_pts' id='vv_28' name='vv_28' value=''>
+      <input type='button' class='home_pts' id='hh_28' name='hh_28' value=''>
+      <input type='button' class='winner' id='who_28' name='who_28' value=''>
+  </div>
+
+  <div class='box_score' id='box_29'>
+      <input type='button' class='vstr' id='vstr_29' name='vstr_29' value=''>
+      <input type='button' class='home' id='home_29' name='home_29' value=''>
+      <input type='button' class='vstr_pts' id='vv_29' name='vv_29' value=''>
+      <input type='button' class='home_pts' id='hh_29' name='hh_29' value=''>
+      <input type='button' class='winner' id='who_29' name='who_29' value=''>
+  </div>
+
+  <div class='box_score' id='box_30'>
+      <input type='button' class='vstr' id='vstr_30' name='vstr_30' value=''>
+      <input type='button' class='home' id='home_30' name='home_30' value=''>
+      <input type='button' class='vstr_pts' id='vv_30' name='vv_30' value=''>
+      <input type='button' class='home_pts' id='hh_30' name='hh_30' value=''>
+      <input type='button' class='winner' id='who_30' name='who_30' value=''>
+  </div>
+
+  <div class='box_score' id='box_31'>
+      <input type='button' class='vstr' id='vstr_31' name='vstr_31' value=''>
+      <input type='button' class='home' id='home_31' name='home_31' value=''>
+      <input type='button' class='vstr_pts' id='vv_31' name='vv_31' value=''>
+      <input type='button' class='home_pts' id='hh_31' name='hh_31' value=''>
+      <input type='button' class='winner' id='who_31' name='who_31' value=''>
+  </div>
+
+  <div class='box_score' id='box_32'>
+      <input type='button' class='vstr' id='vstr_32' name='vstr_32' value=''>
+      <input type='button' class='home' id='home_32' name='home_32' value=''>
+      <input type='button' class='vstr_pts' id='vv_32' name='vv_32' value=''>
+      <input type='button' class='home_pts' id='hh_32' name='hh_32' value=''>
+      <input type='button' class='winner' id='who_32' name='who_32' value=''>
+  </div>
+
+  <div class='box_score' id='box_33'>
+      <input type='button' class='vstr' id='vstr_33' name='vstr_33' value=''>
+      <input type='button' class='home' id='home_33' name='home_33' value=''>
+      <input type='button' class='vstr_pts' id='vv_33' name='vv_33' value=''>
+      <input type='button' class='home_pts' id='hh_33' name='hh_33' value=''>
+      <input type='button' class='winner' id='who_33' name='who_33' value=''>
+  </div>
+
+  <div class='box_score' id='box_34'>
+      <input type='button' class='vstr' id='vstr_34' name='vstr_34' value=''>
+      <input type='button' class='home' id='home_34' name='home_34' value=''>
+      <input type='button' class='vstr_pts' id='vv_34' name='vv_34' value=''>
+      <input type='button' class='home_pts' id='hh_34' name='hh_34' value=''>
+      <input type='button' class='winner' id='who_34' name='who_34' value=''>
+  </div>
+
+  <div class='box_score' id='box_35'>
+      <input type='button' class='vstr' id='vstr_35' name='vstr_35' value=''>
+      <input type='button' class='home' id='home_35' name='home_35' value=''>
+      <input type='button' class='vstr_pts' id='vv_35' name='vv_35' value=''>
+      <input type='button' class='home_pts' id='hh_35' name='hh_35' value=''>
+      <input type='button' class='winner' id='who_35' name='who_35' value=''>
+  </div>
+
+  <div class='box_score' id='box_36'>
+      <input type='button' class='vstr' id='vstr_36' name='vstr_36' value=''>
+      <input type='button' class='home' id='home_36' name='home_36' value=''>
+      <input type='button' class='vstr_pts' id='vv_36' name='vv_36' value=''>
+      <input type='button' class='home_pts' id='hh_36' name='hh_36' value=''>
+      <input type='button' class='winner' id='who_36' name='who_36' value=''>
+  </div>
+
+  <div class='box_score' id='box_37'>
+      <input type='button' class='vstr' id='vstr_37' name='vstr_37' value=''>
+      <input type='button' class='home' id='home_37' name='home_37' value=''>
+      <input type='button' class='vstr_pts' id='vv_37' name='vv_37' value=''>
+      <input type='button' class='home_pts' id='hh_37' name='hh_37' value=''>
+      <input type='button' class='winner' id='who_37' name='who_37' value=''>
+  </div>
+
+  <div class='box_score' id='box_38'>
+      <input type='button' class='vstr' id='vstr_38' name='vstr_38' value=''>
+      <input type='button' class='home' id='home_38' name='home_38' value=''>
+      <input type='button' class='vstr_pts' id='vv_38' name='vv_38' value=''>
+      <input type='button' class='home_pts' id='hh_38' name='hh_38' value=''>
+      <input type='button' class='winner' id='who_38' name='who_38' value=''>
+  </div>
+
+  <div class='box_score' id='box_39'>
+      <input type='button' class='vstr' id='vstr_39' name='vstr_39' value=''>
+      <input type='button' class='home' id='home_39' name='home_39' value=''>
+      <input type='button' class='vstr_pts' id='vv_39' name='vv_39' value=''>
+      <input type='button' class='home_pts' id='hh_39' name='hh_39' value=''>
+      <input type='button' class='winner' id='who_39' name='who_39' value=''>
+  </div>
+
+  <div class='box_score' id='box_40'>
+      <input type='button' class='vstr' id='vstr_40' name='vstr_40' value=''>
+      <input type='button' class='home' id='home_40' name='home_40' value=''>
+      <input type='button' class='vstr_pts' id='vv_40' name='vv_40' value=''>
+      <input type='button' class='home_pts' id='hh_40' name='hh_40' value=''>
+      <input type='button' class='winner' id='who_40' name='who_40' value=''>
+  </div>
+
+  <div class='box_score' id='box_41'>
+      <input type='button' class='vstr' id='vstr_41' name='vstr_41' value=''>
+      <input type='button' class='home' id='home_41' name='home_41' value=''>
+      <input type='button' class='vstr_pts' id='vv_41' name='vv_41' value=''>
+      <input type='button' class='home_pts' id='hh_41' name='hh_41' value=''>
+      <input type='button' class='winner' id='who_41' name='who_41' value=''>
+  </div>
+
+  <div class='box_score' id='box_42'>
+      <input type='button' class='vstr' id='vstr_42' name='vstr_42' value=''>
+      <input type='button' class='home' id='home_42' name='home_42' value=''>
+      <input type='button' class='vstr_pts' id='vv_42' name='vv_42' value=''>
+      <input type='button' class='home_pts' id='hh_42' name='hh_42' value=''>
+      <input type='button' class='winner' id='who_42' name='who_42' value=''>
+  </div>
+
+  <div class='box_score' id='box_43'>
+      <input type='button' class='vstr' id='vstr_43' name='vstr_43' value=''>
+      <input type='button' class='home' id='home_43' name='home_43' value=''>
+      <input type='button' class='vstr_pts' id='vv_43' name='vv_43' value=''>
+      <input type='button' class='home_pts' id='hh_43' name='hh_43' value=''>
+      <input type='button' class='winner' id='who_43' name='who_43' value=''>
+  </div>
+
+  <div class='box_score' id='box_44'>
+      <input type='button' class='vstr' id='vstr_44' name='vstr_44' value=''>
+      <input type='button' class='home' id='home_44' name='home_44' value=''>
+      <input type='button' class='vstr_pts' id='vv_44' name='vv_44' value=''>
+      <input type='button' class='home_pts' id='hh_44' name='hh_44' value=''>
+      <input type='button' class='winner' id='who_44' name='who_44' value=''>
+  </div>
+
+  <div class='box_score' id='box_45'>
+      <input type='button' class='vstr' id='vstr_45' name='vstr_45' value=''>
+      <input type='button' class='home' id='home_45' name='home_45' value=''>
+      <input type='button' class='vstr_pts' id='vv_45' name='vv_45' value=''>
+      <input type='button' class='home_pts' id='hh_45' name='hh_45' value=''>
+      <input type='button' class='winner' id='who_45' name='who_45' value=''>
+  </div>
+
+  <div class='box_score' id='box_46'>
+      <input type='button' class='vstr' id='vstr_46' name='vstr_46' value=''>
+      <input type='button' class='home' id='home_46' name='home_46' value=''>
+      <input type='button' class='vstr_pts' id='vv_46' name='vv_46' value=''>
+      <input type='button' class='home_pts' id='hh_46' name='hh_46' value=''>
+      <input type='button' class='winner' id='who_46' name='who_46' value=''>
+  </div>
+
+  <div class='box_score' id='box_47'>
+      <input type='button' class='vstr' id='vstr_47' name='vstr_47' value=''>
+      <input type='button' class='home' id='home_47' name='home_47' value=''>
+      <input type='button' class='vstr_pts' id='vv_47' name='vv_47' value=''>
+      <input type='button' class='home_pts' id='hh_47' name='hh_47' value=''>
+      <input type='button' class='winner' id='who_47' name='who_47' value=''>
+  </div>
+
+  <div class='box_score' id='box_48'>
+      <input type='button' class='vstr' id='vstr_48' name='vstr_48' value=''>
+      <input type='button' class='home' id='home_48' name='home_48' value=''>
+      <input type='button' class='vstr_pts' id='vv_48' name='vv_48' value=''>
+      <input type='button' class='home_pts' id='hh_48' name='hh_48' value=''>
+      <input type='button' class='winner' id='who_48' name='who_48' value=''>
+  </div>
+
+  <div class='box_score' id='box_49'>
+      <input type='button' class='vstr' id='vstr_49' name='vstr_49' value=''>
+      <input type='button' class='home' id='home_49' name='home_49' value=''>
+      <input type='button' class='vstr_pts' id='vv_49' name='vv_49' value=''>
+      <input type='button' class='home_pts' id='hh_49' name='hh_49' value=''>
+      <input type='button' class='winner' id='who_49' name='who_49' value=''>
+  </div>
+
+  <div class='box_score' id='box_50'>
+      <input type='button' class='vstr' id='vstr_50' name='vstr_50' value=''>
+      <input type='button' class='home' id='home_50' name='home_50' value=''>
+      <input type='button' class='vstr_pts' id='vv_50' name='vv_50' value=''>
+      <input type='button' class='home_pts' id='hh_50' name='hh_50' value=''>
+      <input type='button' class='winner' id='who_50' name='who_50' value=''>
+  </div>
+
+  <div class='box_score' id='box_51'>
+      <input type='button' class='vstr' id='vstr_51' name='vstr_51' value=''>
+      <input type='button' class='home' id='home_51' name='home_51' value=''>
+      <input type='button' class='vstr_pts' id='vv_51' name='vv_51' value=''>
+      <input type='button' class='home_pts' id='hh_51' name='hh_51' value=''>
+      <input type='button' class='winner' id='who_51' name='who_51' value=''>
+  </div>
+
+  <div class='box_score' id='box_52'>
+      <input type='button' class='vstr' id='vstr_52' name='vstr_52' value=''>
+      <input type='button' class='home' id='home_52' name='home_52' value=''>
+      <input type='button' class='vstr_pts' id='vv_52' name='vv_52' value=''>
+      <input type='button' class='home_pts' id='hh_52' name='hh_52' value=''>
+      <input type='button' class='winner' id='who_52' name='who_52' value=''>
+  </div>
+
+  <div class='box_score' id='box_53'>
+      <input type='button' class='vstr' id='vstr_53' name='vstr_53' value=''>
+      <input type='button' class='home' id='home_53' name='home_53' value=''>
+      <input type='button' class='vstr_pts' id='vv_53' name='vv_53' value=''>
+      <input type='button' class='home_pts' id='hh_53' name='hh_53' value=''>
+      <input type='button' class='winner' id='who_53' name='who_53' value=''>
+  </div>
+
+  <div class='box_score' id='box_54'>
+      <input type='button' class='vstr' id='vstr_54' name='vstr_54' value=''>
+      <input type='button' class='home' id='home_54' name='home_54' value=''>
+      <input type='button' class='vstr_pts' id='vv_54' name='vv_54' value=''>
+      <input type='button' class='home_pts' id='hh_54' name='hh_54' value=''>
+      <input type='button' class='winner' id='who_54' name='who_54' value=''>
+  </div>
+
+  <div class='box_score' id='box_55'>
+      <input type='button' class='vstr' id='vstr_55' name='vstr_55' value=''>
+      <input type='button' class='home' id='home_55' name='home_55' value=''>
+      <input type='button' class='vstr_pts' id='vv_55' name='vv_55' value=''>
+      <input type='button' class='home_pts' id='hh_55' name='hh_55' value=''>
+      <input type='button' class='winner' id='who_55' name='who_55' value=''>
+  </div>
+
+  <div class='box_score' id='box_56'>
+      <input type='button' class='vstr' id='vstr_56' name='vstr_56' value=''>
+      <input type='button' class='home' id='home_56' name='home_56' value=''>
+      <input type='button' class='vstr_pts' id='vv_56' name='vv_56' value=''>
+      <input type='button' class='home_pts' id='hh_56' name='hh_56' value=''>
+      <input type='button' class='winner' id='who_56' name='who_56' value=''>
+  </div>
+
+  <div class='box_score' id='box_57'>
+      <input type='button' class='vstr' id='vstr_57' name='vstr_57' value=''>
+      <input type='button' class='home' id='home_57' name='home_57' value=''>
+      <input type='button' class='vstr_pts' id='vv_57' name='vv_57' value=''>
+      <input type='button' class='home_pts' id='hh_57' name='hh_57' value=''>
+      <input type='button' class='winner' id='who_57' name='who_57' value=''>
+  </div>
+
+  <div class='box_score' id='box_58'>
+      <input type='button' class='vstr' id='vstr_58' name='vstr_58' value=''>
+      <input type='button' class='home' id='home_58' name='home_58' value=''>
+      <input type='button' class='vstr_pts' id='vv_58' name='vv_58' value=''>
+      <input type='button' class='home_pts' id='hh_58' name='hh_58' value=''>
+      <input type='button' class='winner' id='who_58' name='who_58' value=''>
+  </div>
+
+  <div class='box_score' id='box_59'>
+      <input type='button' class='vstr' id='vstr_59' name='vstr_59' value=''>
+      <input type='button' class='home' id='home_59' name='home_59' value=''>
+      <input type='button' class='vstr_pts' id='vv_59' name='vv_59' value=''>
+      <input type='button' class='home_pts' id='hh_59' name='hh_59' value=''>
+      <input type='button' class='winner' id='who_59' name='who_59' value=''>
+  </div>
+
+  <div class='box_score' id='box_60'>
+      <input type='button' class='vstr' id='vstr_60' name='vstr_60' value=''>
+      <input type='button' class='home' id='home_60' name='home_60' value=''>
+      <input type='button' class='vstr_pts' id='vv_60' name='vv_60' value=''>
+      <input type='button' class='home_pts' id='hh_60' name='hh_60' value=''>
+      <input type='button' class='winner' id='who_60' name='who_60' value=''>
+  </div>
+
+  <div class='box_score' id='box_61'>
+      <input type='button' class='vstr' id='vstr_61' name='vstr_61' value=''>
+      <input type='button' class='home' id='home_61' name='home_61' value=''>
+      <input type='button' class='vstr_pts' id='vv_61' name='vv_61' value=''>
+      <input type='button' class='home_pts' id='hh_61' name='hh_61' value=''>
+      <input type='button' class='winner' id='who_61' name='who_61' value=''>
+  </div>
+
+  <div class='box_score' id='box_62'>
+      <input type='button' class='vstr' id='vstr_62' name='vstr_62' value=''>
+      <input type='button' class='home' id='home_62' name='home_62' value=''>
+      <input type='button' class='vstr_pts' id='vv_62' name='vv_62' value=''>
+      <input type='button' class='home_pts' id='hh_62' name='hh_62' value=''>
+      <input type='button' class='winner' id='who_62' name='who_62' value=''>
+  </div>
+
+  <div class='box_score' id='box_63'>
+      <input type='button' class='vstr' id='vstr_63' name='vstr_63' value=''>
+      <input type='button' class='home' id='home_63' name='home_63' value=''>
+      <input type='button' class='vstr_pts' id='vv_63' name='vv_63' value=''>
+      <input type='button' class='home_pts' id='hh_63' name='hh_63' value=''>
+      <input type='button' class='winner' id='who_63' name='who_63' value=''>
+  </div>
+
+  <div class='round' id='rd1'>
+    <p>ROUND 1</p>
+  </div>
+  <div class='round' id='rd2'>
+    <p>ROUND 2</p>
+  </div>
+  <div class='round' id='rd3'>
+    <p>ROUND 3</p>
+  </div>
+  <div class='round' id='rd4'>
+    <p>ROUND 4</p>
+  </div>
+  <div class='round' id='rd5'>
+    <p>ROUND 5</p>
+  </div>
+  <div class='round' id='rd6'>
+    <p>ROUND 6</p>
+  </div>
+
+
+
+
+</div>
+
+
+</html>

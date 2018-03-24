@@ -1,0 +1,1306 @@
+
+<html>
+<head>
+<style type="text/css">
+
+.mydiv
+{
+    background: #303030;  /* hard gray */
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    text-align:left;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 3px; 
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#mydiv:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.visitor
+{
+    background: #6c9dc6;  /* hard gray */
+    position: absolute;
+    width: 40px;
+    height: 90px;
+    text-align:center;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 3px; 
+}
+
+.home
+{
+    background:#396a93;  /* hard gray */
+    position: absolute;
+    width: 90px;
+    height: 40px;
+    text-align:center;
+    border-radius: 12px;
+    padding: 5px;
+    margin: 3px; 
+}
+
+#saver
+{
+   position: absolute;
+   top: 40px;
+   left: 40px;
+   background-image: url("bball_blue2.png");
+   font-family: "Courier New";
+   color: white;
+   border: none;
+   text-decoration: none;
+   display: inline-block;
+   text-shadow: 3px 3px #2251dd;
+   font-size: 32px;
+   cursor: pointer;
+   -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+   width: 100px;
+   height: 101px; */
+   border-radius: 12px;
+}
+
+
+#saver:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* same as the back button */
+#back_button
+{
+   position: absolute;
+   top: 40px;
+   left: 40px;
+   background-image: url("bball_blue2.png");
+   font-family: "Courier New";
+   color: white;
+   border: none;
+   text-decoration: none;
+   display: inline-block;
+   text-shadow: 3px 3px #2251dd;
+   font-size: 32px;
+   cursor: pointer;
+   -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+   width: 100px;
+   height: 101px; */
+   border-radius: 12px;
+}
+
+
+#back_button:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* static stamp  for display page after they hit save */
+
+#selection_stamp
+{
+   /* display of chosend numbers */		   
+   position: absolute;
+   font-family: "Stencil";
+   font-size: 250px;
+ 
+   /*-ms-transform: rotate(-90deg); IE 9 */
+   /*-webkit-transform: rotate(-90deg); Safari 3-8 */
+   /* transform: rotate(-90deg);  */
+
+
+   /*top: 400px;*/
+   /*left: 200px;*/
+   color: #ADD8E8;
+   height: 700px;
+   width: 700px;
+   top:200px;
+   left:550px;
+
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari 3-8 */
+    transform: rotate(45deg);
+}
+
+#title_home
+{
+    font-size: 100px;
+    font-family: "Impact";
+    position: absolute;
+    color: #396a93;
+    top: -100;
+    left: 1000;
+}
+
+#title_vstr
+{
+    font-size: 100px;
+    font-family: "Impact";
+    position: absolute;
+    color:  #6c9dc6;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari 3-8 */
+    transform: rotate(90deg);
+    top: 400;
+    left: -100;
+
+}
+
+#grid_mat
+{
+    position: absolute;
+    border: 5px solid #C0C0C0;
+    background: #ADD8E8;
+    width: 1120px;
+    height: 1120px;
+    text-align:left;
+    border-radius: 15px;
+    top: 160;
+    left: 160;
+}
+
+/* forces horizontal scroll bar */
+.wide_div
+{
+    position: relative;
+    top: 50px;
+    left: 50px;
+    border: 4px solid #ADD8E8;
+    border-radius: 15px;
+    /* width: 120%; */
+    width: 1400px;
+    height: 1400px;
+}
+
+
+
+
+
+#box_1 {
+		position: absolute;
+		top: 170px;
+		left: 170px;
+}
+
+#box_2 {
+		position: absolute;
+		top: 170px;
+		left: 280px;
+}
+
+#box_3 {
+		position: absolute;
+		top: 170px;
+		left: 390px;
+}
+
+#box_4 {
+		position: absolute;
+		top: 170px;
+		left: 500px;
+}
+
+#box_5 {
+		position: absolute;
+		top: 170px;
+		left: 610px;
+}
+
+#box_6 {
+		position: absolute;
+		top: 170px;
+		left: 720px;
+}
+
+#box_7 {
+		position: absolute;
+		top: 170px;
+		left: 830px;
+}
+
+#box_8 {
+		position: absolute;
+		top: 170px;
+		left: 940px;
+}
+
+#box_9 {
+		position: absolute;
+		top: 170px;
+		left: 1050px;
+}
+
+#box_10 {
+		position: absolute;
+		top: 170px;
+		left: 1160px;
+}
+
+#box_11 {
+		position: absolute;
+		top: 280px;
+		left: 170px;
+}
+
+#box_12 {
+		position: absolute;
+		top: 280px;
+		left: 280px;
+}
+
+#box_13 {
+		position: absolute;
+		top: 280px;
+		left: 390px;
+}
+
+#box_14 {
+		position: absolute;
+		top: 280px;
+		left: 500px;
+}
+
+#box_15 {
+		position: absolute;
+		top: 280px;
+		left: 610px;
+}
+
+#box_16 {
+		position: absolute;
+		top: 280px;
+		left: 720px;
+}
+
+#box_17 {
+		position: absolute;
+		top: 280px;
+		left: 830px;
+}
+
+#box_18 {
+		position: absolute;
+		top: 280px;
+		left: 940px;
+}
+
+#box_19 {
+		position: absolute;
+		top: 280px;
+		left: 1050px;
+}
+
+#box_20 {
+		position: absolute;
+		top: 280px;
+		left: 1160px;
+}
+
+#box_21 {
+		position: absolute;
+		top: 390px;
+		left: 170px;
+}
+
+#box_22 {
+		position: absolute;
+		top: 390px;
+		left: 280px;
+}
+
+#box_23 {
+		position: absolute;
+		top: 390px;
+		left: 390px;
+}
+
+#box_24 {
+		position: absolute;
+		top: 390px;
+		left: 500px;
+}
+
+#box_25 {
+		position: absolute;
+		top: 390px;
+		left: 610px;
+}
+
+#box_26 {
+		position: absolute;
+		top: 390px;
+		left: 720px;
+}
+
+#box_27 {
+		position: absolute;
+		top: 390px;
+		left: 830px;
+}
+
+#box_28 {
+		position: absolute;
+		top: 390px;
+		left: 940px;
+}
+
+#box_29 {
+		position: absolute;
+		top: 390px;
+		left: 1050px;
+}
+
+#box_30 {
+		position: absolute;
+		top: 390px;
+		left: 1160px;
+}
+
+#box_31 {
+		position: absolute;
+		top: 500px;
+		left: 170px;
+}
+
+#box_32 {
+		position: absolute;
+		top: 500px;
+		left: 280px;
+}
+
+#box_33 {
+		position: absolute;
+		top: 500px;
+		left: 390px;
+}
+
+#box_34 {
+		position: absolute;
+		top: 500px;
+		left: 500px;
+}
+
+#box_35 {
+		position: absolute;
+		top: 500px;
+		left: 610px;
+}
+
+#box_36 {
+		position: absolute;
+		top: 500px;
+		left: 720px;
+}
+
+#box_37 {
+		position: absolute;
+		top: 500px;
+		left: 830px;
+}
+
+#box_38 {
+		position: absolute;
+		top: 500px;
+		left: 940px;
+}
+
+#box_39 {
+		position: absolute;
+		top: 500px;
+		left: 1050px;
+}
+
+#box_40 {
+		position: absolute;
+		top: 500px;
+		left: 1160px;
+}
+
+#box_41 {
+		position: absolute;
+		top: 610px;
+		left: 170px;
+}
+
+#box_42 {
+		position: absolute;
+		top: 610px;
+		left: 280px;
+}
+
+#box_43 {
+		position: absolute;
+		top: 610px;
+		left: 390px;
+}
+
+#box_44 {
+		position: absolute;
+		top: 610px;
+		left: 500px;
+}
+
+#box_45 {
+		position: absolute;
+		top: 610px;
+		left: 610px;
+}
+
+#box_46 {
+		position: absolute;
+		top: 610px;
+		left: 720px;
+}
+
+#box_47 {
+		position: absolute;
+		top: 610px;
+		left: 830px;
+}
+
+#box_48 {
+		position: absolute;
+		top: 610px;
+		left: 940px;
+}
+
+#box_49 {
+		position: absolute;
+		top: 610px;
+		left: 1050px;
+}
+
+#box_50 {
+		position: absolute;
+		top: 610px;
+		left: 1160px;
+}
+
+#box_51 {
+		position: absolute;
+		top: 720px;
+		left: 170px;
+}
+
+#box_52 {
+		position: absolute;
+		top: 720px;
+		left: 280px;
+}
+
+#box_53 {
+		position: absolute;
+		top: 720px;
+		left: 390px;
+}
+
+#box_54 {
+		position: absolute;
+		top: 720px;
+		left: 500px;
+}
+
+#box_55 {
+		position: absolute;
+		top: 720px;
+		left: 610px;
+}
+
+#box_56 {
+		position: absolute;
+		top: 720px;
+		left: 720px;
+}
+
+#box_57 {
+		position: absolute;
+		top: 720px;
+		left: 830px;
+}
+
+#box_58 {
+		position: absolute;
+		top: 720px;
+		left: 940px;
+}
+
+#box_59 {
+		position: absolute;
+		top: 720px;
+		left: 1050px;
+}
+
+#box_60 {
+		position: absolute;
+		top: 720px;
+		left: 1160px;
+}
+
+#box_61 {
+		position: absolute;
+		top: 830px;
+		left: 170px;
+}
+
+#box_62 {
+		position: absolute;
+		top: 830px;
+		left: 280px;
+}
+
+#box_63 {
+		position: absolute;
+		top: 830px;
+		left: 390px;
+}
+
+#box_64 {
+		position: absolute;
+		top: 830px;
+		left: 500px;
+}
+
+#box_65 {
+		position: absolute;
+		top: 830px;
+		left: 610px;
+}
+
+#box_66 {
+		position: absolute;
+		top: 830px;
+		left: 720px;
+}
+
+#box_67 {
+		position: absolute;
+		top: 830px;
+		left: 830px;
+}
+
+#box_68 {
+		position: absolute;
+		top: 830px;
+		left: 940px;
+}
+
+#box_69 {
+		position: absolute;
+		top: 830px;
+		left: 1050px;
+}
+
+#box_70 {
+		position: absolute;
+		top: 830px;
+		left: 1160px;
+}
+
+#box_71 {
+		position: absolute;
+		top: 940px;
+		left: 170px;
+}
+
+#box_72 {
+		position: absolute;
+		top: 940px;
+		left: 280px;
+}
+
+#box_73 {
+		position: absolute;
+		top: 940px;
+		left: 390px;
+}
+
+#box_74 {
+		position: absolute;
+		top: 940px;
+		left: 500px;
+}
+
+#box_75 {
+		position: absolute;
+		top: 940px;
+		left: 610px;
+}
+
+#box_76 {
+		position: absolute;
+		top: 940px;
+		left: 720px;
+}
+
+#box_77 {
+		position: absolute;
+		top: 940px;
+		left: 830px;
+}
+
+#box_78 {
+		position: absolute;
+		top: 940px;
+		left: 940px;
+}
+
+#box_79 {
+		position: absolute;
+		top: 940px;
+		left: 1050px;
+}
+
+#box_80 {
+		position: absolute;
+		top: 940px;
+		left: 1160px;
+}
+
+#box_81 {
+		position: absolute;
+		top: 1050px;
+		left: 170px;
+}
+
+#box_82 {
+		position: absolute;
+		top: 1050px;
+		left: 280px;
+}
+
+#box_83 {
+		position: absolute;
+		top: 1050px;
+		left: 390px;
+}
+
+#box_84 {
+		position: absolute;
+		top: 1050px;
+		left: 500px;
+}
+
+#box_85 {
+		position: absolute;
+		top: 1050px;
+		left: 610px;
+}
+
+#box_86 {
+		position: absolute;
+		top: 1050px;
+		left: 720px;
+}
+
+#box_87 {
+		position: absolute;
+		top: 1050px;
+		left: 830px;
+}
+
+#box_88 {
+		position: absolute;
+		top: 1050px;
+		left: 940px;
+}
+
+#box_89 {
+		position: absolute;
+		top: 1050px;
+		left: 1050px;
+}
+
+#box_90 {
+		position: absolute;
+		top: 1050px;
+		left: 1160px;
+}
+
+#box_91 {
+		position: absolute;
+		top: 1160px;
+		left: 170px;
+}
+
+#box_92 {
+		position: absolute;
+		top: 1160px;
+		left: 280px;
+}
+
+#box_93 {
+		position: absolute;
+		top: 1160px;
+		left: 390px;
+}
+
+#box_94 {
+		position: absolute;
+		top: 1160px;
+		left: 500px;
+}
+
+#box_95 {
+		position: absolute;
+		top: 1160px;
+		left: 610px;
+}
+
+#box_96 {
+		position: absolute;
+		top: 1160px;
+		left: 720px;
+}
+
+#box_97 {
+		position: absolute;
+		top: 1160px;
+		left: 830px;
+}
+
+#box_98 {
+		position: absolute;
+		top: 1160px;
+		left: 940px;
+}
+
+#box_99 {
+		position: absolute;
+		top: 1160px;
+		left: 1050px;
+}
+
+#box_100 {
+		position: absolute;
+		top: 1160px;
+		left: 1160px;
+}
+
+
+
+#home_0 {
+		position: absolute;
+		top: 100px;
+		left: 170px;
+}
+
+#home_1 {
+		position: absolute;
+		top: 100px;
+		left: 280px;
+}
+
+#home_2 {
+		position: absolute;
+		top: 100px;
+		left: 390px;
+}
+
+#home_3 {
+		position: absolute;
+		top: 100px;
+		left: 500px;
+}
+
+#home_4 {
+		position: absolute;
+		top: 100px;
+		left: 610px;
+}
+
+#home_5 {
+		position: absolute;
+		top: 100px;
+		left: 720px;
+}
+
+#home_6 {
+		position: absolute;
+		top: 100px;
+		left: 830px;
+}
+
+#home_7 {
+		position: absolute;
+		top: 100px;
+		left: 940px;
+}
+
+#home_8 {
+		position: absolute;
+		top: 100px;
+		left: 1050px;
+}
+
+#home_9 {
+		position: absolute;
+		top: 100px;
+		left: 1160px;
+}
+
+
+
+#vstr_0 {
+		position: absolute;
+		top: 170px;
+		left: 100px;
+}
+
+#vstr_1 {
+		position: absolute;
+		top: 280px;
+		left: 100px;
+}
+
+#vstr_2 {
+		position: absolute;
+		top: 390px;
+		left: 100px;
+}
+
+#vstr_3 {
+		position: absolute;
+		top: 500px;
+		left: 100px;
+}
+
+#vstr_4 {
+		position: absolute;
+		top: 610px;
+		left: 100px;
+}
+
+#vstr_5 {
+		position: absolute;
+		top: 720px;
+		left: 100px;
+}
+
+#vstr_6 {
+		position: absolute;
+		top: 830px;
+		left: 100px;
+}
+
+#vstr_7 {
+		position: absolute;
+		top: 940px;
+		left: 100px;
+}
+
+#vstr_8 {
+		position: absolute;
+		top: 1050px;
+		left: 100px;
+}
+
+#vstr_9 {
+		position: absolute;
+		top: 1160px;
+		left: 100px;
+}
+
+.mytext
+{
+    color: white;
+    font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+    <div id="title_home">
+        <p>HOME</p>
+    </div>
+    <div id="title_vstr">
+        <p>VISITOR</p>
+    </div>
+
+<div class="wide_div">
+
+	<div>
+	<input class="save_button" id="saver", type="button" name='saver' value='save'>
+	</div>
+
+    <div id="grid_mat">
+        <p class="mytext"></p>
+    </div>
+
+<div class="mydiv" id="box_1">
+<p class="mytext">"1"</p>
+</div>
+<div class="mydiv" id="box_2">
+<p class="mytext">"2"</p>
+</div>
+<div class="mydiv" id="box_3">
+<p class="mytext">"3"</p>
+</div>
+<div class="mydiv" id="box_4">
+<p class="mytext">"4"</p>
+</div>
+<div class="mydiv" id="box_5">
+<p class="mytext">"5"</p>
+</div>
+<div class="mydiv" id="box_6">
+<p class="mytext">"6"</p>
+</div>
+<div class="mydiv" id="box_7">
+<p class="mytext">"7"</p>
+</div>
+<div class="mydiv" id="box_8">
+<p class="mytext">"8"</p>
+</div>
+<div class="mydiv" id="box_9">
+<p class="mytext">"9"</p>
+</div>
+<div class="mydiv" id="box_10">
+<p class="mytext">"10"</p>
+</div>
+<div class="mydiv" id="box_11">
+<p class="mytext">"11"</p>
+</div>
+<div class="mydiv" id="box_12">
+<p class="mytext">"12"</p>
+</div>
+<div class="mydiv" id="box_13">
+<p class="mytext">"13"</p>
+</div>
+<div class="mydiv" id="box_14">
+<p class="mytext">"14"</p>
+</div>
+<div class="mydiv" id="box_15">
+<p class="mytext">"15"</p>
+</div>
+<div class="mydiv" id="box_16">
+<p class="mytext">"16"</p>
+</div>
+<div class="mydiv" id="box_17">
+<p class="mytext">"17"</p>
+</div>
+<div class="mydiv" id="box_18">
+<p class="mytext">"18"</p>
+</div>
+<div class="mydiv" id="box_19">
+<p class="mytext">"19"</p>
+</div>
+<div class="mydiv" id="box_20">
+<p class="mytext">"20"</p>
+</div>
+<div class="mydiv" id="box_21">
+<p class="mytext">"21"</p>
+</div>
+<div class="mydiv" id="box_22">
+<p class="mytext">"22"</p>
+</div>
+<div class="mydiv" id="box_23">
+<p class="mytext">"23"</p>
+</div>
+<div class="mydiv" id="box_24">
+<p class="mytext">"24"</p>
+</div>
+<div class="mydiv" id="box_25">
+<p class="mytext">"25"</p>
+</div>
+<div class="mydiv" id="box_26">
+<p class="mytext">"26"</p>
+</div>
+<div class="mydiv" id="box_27">
+<p class="mytext">"27"</p>
+</div>
+<div class="mydiv" id="box_28">
+<p class="mytext">"28"</p>
+</div>
+<div class="mydiv" id="box_29">
+<p class="mytext">"29"</p>
+</div>
+<div class="mydiv" id="box_30">
+<p class="mytext">"30"</p>
+</div>
+<div class="mydiv" id="box_31">
+<p class="mytext">"31"</p>
+</div>
+<div class="mydiv" id="box_32">
+<p class="mytext">"32"</p>
+</div>
+<div class="mydiv" id="box_33">
+<p class="mytext">"33"</p>
+</div>
+<div class="mydiv" id="box_34">
+<p class="mytext">"34"</p>
+</div>
+<div class="mydiv" id="box_35">
+<p class="mytext">"35"</p>
+</div>
+<div class="mydiv" id="box_36">
+<p class="mytext">"36"</p>
+</div>
+<div class="mydiv" id="box_37">
+<p class="mytext">"37"</p>
+</div>
+<div class="mydiv" id="box_38">
+<p class="mytext">"38"</p>
+</div>
+<div class="mydiv" id="box_39">
+<p class="mytext">"39"</p>
+</div>
+<div class="mydiv" id="box_40">
+<p class="mytext">"40"</p>
+</div>
+<div class="mydiv" id="box_41">
+<p class="mytext">"41"</p>
+</div>
+<div class="mydiv" id="box_42">
+<p class="mytext">"42"</p>
+</div>
+<div class="mydiv" id="box_43">
+<p class="mytext">"43"</p>
+</div>
+<div class="mydiv" id="box_44">
+<p class="mytext">"44"</p>
+</div>
+<div class="mydiv" id="box_45">
+<p class="mytext">"45"</p>
+</div>
+<div class="mydiv" id="box_46">
+<p class="mytext">"46"</p>
+</div>
+<div class="mydiv" id="box_47">
+<p class="mytext">"47"</p>
+</div>
+<div class="mydiv" id="box_48">
+<p class="mytext">"48"</p>
+</div>
+<div class="mydiv" id="box_49">
+<p class="mytext">"49"</p>
+</div>
+<div class="mydiv" id="box_50">
+<p class="mytext">"50"</p>
+</div>
+<div class="mydiv" id="box_51">
+<p class="mytext">"51"</p>
+</div>
+<div class="mydiv" id="box_52">
+<p class="mytext">"52"</p>
+</div>
+<div class="mydiv" id="box_53">
+<p class="mytext">"53"</p>
+</div>
+<div class="mydiv" id="box_54">
+<p class="mytext">"54"</p>
+</div>
+<div class="mydiv" id="box_55">
+<p class="mytext">"55"</p>
+</div>
+<div class="mydiv" id="box_56">
+<p class="mytext">"56"</p>
+</div>
+<div class="mydiv" id="box_57">
+<p class="mytext">"57"</p>
+</div>
+<div class="mydiv" id="box_58">
+<p class="mytext">"58"</p>
+</div>
+<div class="mydiv" id="box_59">
+<p class="mytext">"59"</p>
+</div>
+<div class="mydiv" id="box_60">
+<p class="mytext">"60"</p>
+</div>
+<div class="mydiv" id="box_61">
+<p class="mytext">"61"</p>
+</div>
+<div class="mydiv" id="box_62">
+<p class="mytext">"62"</p>
+</div>
+<div class="mydiv" id="box_63">
+<p class="mytext">"63"</p>
+</div>
+<div class="mydiv" id="box_64">
+<p class="mytext">"64"</p>
+</div>
+<div class="mydiv" id="box_65">
+<p class="mytext">"65"</p>
+</div>
+<div class="mydiv" id="box_66">
+<p class="mytext">"66"</p>
+</div>
+<div class="mydiv" id="box_67">
+<p class="mytext">"67"</p>
+</div>
+<div class="mydiv" id="box_68">
+<p class="mytext">"68"</p>
+</div>
+<div class="mydiv" id="box_69">
+<p class="mytext">"69"</p>
+</div>
+<div class="mydiv" id="box_70">
+<p class="mytext">"70"</p>
+</div>
+<div class="mydiv" id="box_71">
+<p class="mytext">"71"</p>
+</div>
+<div class="mydiv" id="box_72">
+<p class="mytext">"72"</p>
+</div>
+<div class="mydiv" id="box_73">
+<p class="mytext">"73"</p>
+</div>
+<div class="mydiv" id="box_74">
+<p class="mytext">"74"</p>
+</div>
+<div class="mydiv" id="box_75">
+<p class="mytext">"75"</p>
+</div>
+<div class="mydiv" id="box_76">
+<p class="mytext">"76"</p>
+</div>
+<div class="mydiv" id="box_77">
+<p class="mytext">"77"</p>
+</div>
+<div class="mydiv" id="box_78">
+<p class="mytext">"78"</p>
+</div>
+<div class="mydiv" id="box_79">
+<p class="mytext">"79"</p>
+</div>
+<div class="mydiv" id="box_80">
+<p class="mytext">"80"</p>
+</div>
+<div class="mydiv" id="box_81">
+<p class="mytext">"81"</p>
+</div>
+<div class="mydiv" id="box_82">
+<p class="mytext">"82"</p>
+</div>
+<div class="mydiv" id="box_83">
+<p class="mytext">"83"</p>
+</div>
+<div class="mydiv" id="box_84">
+<p class="mytext">"84"</p>
+</div>
+<div class="mydiv" id="box_85">
+<p class="mytext">"85"</p>
+</div>
+<div class="mydiv" id="box_86">
+<p class="mytext">"86"</p>
+</div>
+<div class="mydiv" id="box_87">
+<p class="mytext">"87"</p>
+</div>
+<div class="mydiv" id="box_88">
+<p class="mytext">"88"</p>
+</div>
+<div class="mydiv" id="box_89">
+<p class="mytext">"89"</p>
+</div>
+<div class="mydiv" id="box_90">
+<p class="mytext">"90"</p>
+</div>
+<div class="mydiv" id="box_91">
+<p class="mytext">"91"</p>
+</div>
+<div class="mydiv" id="box_92">
+<p class="mytext">"92"</p>
+</div>
+<div class="mydiv" id="box_93">
+<p class="mytext">"93"</p>
+</div>
+<div class="mydiv" id="box_94">
+<p class="mytext">"94"</p>
+</div>
+<div class="mydiv" id="box_95">
+<p class="mytext">"95"</p>
+</div>
+<div class="mydiv" id="box_96">
+<p class="mytext">"96"</p>
+</div>
+<div class="mydiv" id="box_97">
+<p class="mytext">"97"</p>
+</div>
+<div class="mydiv" id="box_98">
+<p class="mytext">"98"</p>
+</div>
+<div class="mydiv" id="box_99">
+<p class="mytext">"99"</p>
+</div>
+<div class="mydiv" id="box_100">
+<p class="mytext">"100"</p>
+</div>
+<div class="home" id="home_0">
+<p class="mytext">"0"</p>
+</div>
+<div class="visitor" id="vstr_0">
+<p class="mytext">"0"</p>
+</div>
+<div class="home" id="home_1">
+<p class="mytext">"1"</p>
+</div>
+<div class="visitor" id="vstr_1">
+<p class="mytext">"1"</p>
+</div>
+<div class="home" id="home_2">
+<p class="mytext">"2"</p>
+</div>
+<div class="visitor" id="vstr_2">
+<p class="mytext">"2"</p>
+</div>
+<div class="home" id="home_3">
+<p class="mytext">"3"</p>
+</div>
+<div class="visitor" id="vstr_3">
+<p class="mytext">"3"</p>
+</div>
+<div class="home" id="home_4">
+<p class="mytext">"4"</p>
+</div>
+<div class="visitor" id="vstr_4">
+<p class="mytext">"4"</p>
+</div>
+<div class="home" id="home_5">
+<p class="mytext">"5"</p>
+</div>
+<div class="visitor" id="vstr_5">
+<p class="mytext">"5"</p>
+</div>
+<div class="home" id="home_6">
+<p class="mytext">"6"</p>
+</div>
+<div class="visitor" id="vstr_6">
+<p class="mytext">"6"</p>
+</div>
+<div class="home" id="home_7">
+<p class="mytext">"7"</p>
+</div>
+<div class="visitor" id="vstr_7">
+<p class="mytext">"7"</p>
+</div>
+<div class="home" id="home_8">
+<p class="mytext">"8"</p>
+</div>
+<div class="visitor" id="vstr_8">
+<p class="mytext">"8"</p>
+</div>
+<div class="home" id="home_9">
+<p class="mytext">"9"</p>
+</div>
+<div class="visitor" id="vstr_9">
+<p class="mytext">"9"</p>
+</div>
+
+<div id="selection_stamp">
+      <p>YOUR PICKS</p>
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>

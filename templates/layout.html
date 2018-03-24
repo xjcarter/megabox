@@ -1,0 +1,193 @@
+
+<html>
+<head>
+<style type="text/css">
+
+.mydiv
+{
+    background: #303030;  /* hard gray */
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    text-align:left;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 3px; 
+}
+
+#betty
+{
+    background:#363630;  /* hard gray */
+    position: absolute;
+    width: 40px;
+    height: 90px;
+    text-align:left;
+    border-radius: 12px;
+    top: 120px;
+    left: 50px;
+}
+
+#homer
+{
+    background:#464640;  /* hard gray */
+    position: absolute;
+    width: 90px;
+    height: 40px;
+    text-align:left;
+    border-radius: 12px;
+    padding: 10px;
+    top:  50px;
+    left: 120px;
+    padding:5px;
+    margin: 3px;
+}
+
+
+
+#topleft {
+    top: 120px;
+    left: 120px;
+}
+
+#topright {
+    top: 120px;
+    left: 1220px;
+}
+
+#botleft {
+    top: 1220px;
+    left: 120px;
+}
+
+#botright {
+    top: 1220px;
+    left: 1220px;
+}
+
+#second {
+    top: 120px;
+    left: 230px;
+}
+
+
+
+.mytext
+{
+    color: white;
+    font-size: 20px;
+}
+
+#saver
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    text-align:center;
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+/* forces horizontal scroll bar */
+.wide_div
+{
+    position: relative;
+    top: 50px;
+    left: 50px;
+    border: 4px solid #ADD8E8;
+    border-radius: 15px;
+    /* width: 120%; */
+    width: 1400px;
+    height: 1400px;
+}
+
+#grid_mat
+{
+    position: absolute;
+    border: 5px solid #C0C0C0;
+    background: #ADD8E8;
+    width: 1220px;
+    height: 1220px;
+    text-align:left;
+    border-radius: 15px;
+    top: 110;
+    left: 110;
+}
+
+#title_home
+{
+    font-size: 100px;
+    font-family: "Impact";
+    position: absolute;
+    color: #ADD8E8;
+    top: -100;
+    left: 1000;
+}
+
+#title_vstr
+{
+    font-size: 100px;
+    font-family: "Impact";
+    position: absolute;
+    color: #ADD8E8;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari 3-8 */
+    transform: rotate(90deg);
+    top: 400;
+    left: -100;
+
+}
+</style>
+</head>
+
+<body>
+    <div id="title_home">
+        <p>HOME</p>
+    </div>
+    <div id="title_vstr">
+        <p>VISITOR</p>
+    </div>
+
+
+<div class="wide_div">
+
+    <div id="grid_mat">
+        <p class="mytext"></p>
+    </div>
+
+    
+
+    <div class="mydiv" id="topleft">
+         <p class="mytext">TopLeft</p>
+    </div>
+    <div class="mydiv" id="second">
+         <p class="mytext">TopLeft</p>
+    </div>
+    <div class="mydiv" id="botleft">
+         <p class="mytext">BottomLeft</p>
+    </div>
+    <div class="mydiv" id="topright">
+         <p class="mytext">TopRight</p>
+    </div>
+    <div class="mydiv" id="botright">
+         <p class="mytext">BtoomRight</p>
+    </div>
+        <div class="mydiv" id="homer">
+         <p class="mytext">9</p>
+    </div>
+    <div class="mydiv" id="betty">
+         <p class="mytext">4</p>
+    </div>
+</div>
+
+<input class="save_button" id="saver", type="button" value='SAVE'>
+<!-- p id= "title_vstor">V I S T O R</p>
+<!--
+<div class="mydiv" id="lone_wolf">
+     <p class="mytext"> Lone Wolf</p>
+</div>
+this would require body style="width:200%;"
+to work  -->
+</body>
+</html>

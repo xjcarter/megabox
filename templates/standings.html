@@ -1,0 +1,226 @@
+<html>
+<head>
+<style>
+
+    #main_div
+    {
+        position: relative;
+        top: 10px;
+        left: 90px;
+        border: 1px solid black;
+        border-radius: 15px;
+        /* width: 120%; */
+        width: 1050px;
+        height: 3250px;
+        background: #4B79A1;  
+        background: -webkit-linear-gradient(to right, #283E51, #4B79A1); 
+        background: linear-gradient(to right, #283E51, #4B79A1); 
+    }
+
+
+    #title
+    {
+        position:absolute;
+        top:-30px;
+        left:400px;
+        font-family: 'Rockwell';
+        font-size: 30px;
+        width: 270px;
+        height: 30px;
+        color:white;
+        text-align: center;
+        padding-top:5px;
+    }
+
+    #standings
+    {
+        position: absolute;
+        background-color: #4080bf;
+        color: white;
+        font-family: "Courier New";
+        font-size: 18px; 
+        width: 1025px;
+        top: 50px;
+        left: 10px;
+         background: #4B79A1;  
+        background: -webkit-linear-gradient(to right, #283E51, #4B79A1); 
+        background: linear-gradient(to right, #283E51, #4B79A1); 
+
+    }
+
+    #heading
+    {
+        color: white;
+        font-family: "Verdana";
+        font-size: 18px;
+        background: #4B79A1;  
+        background: -webkit-linear-gradient(to right, #283E51, #4B79A1); 
+        background: linear-gradient(to right, #283E51, #4B79A1); 
+    }
+
+
+    #head_user
+    {
+       width: 200px;
+       text-align: left; 
+    }
+
+    .round_header
+    {
+       width: 100px;
+       text-align: right; 
+    }
+
+    .user_id
+    {
+       background-color:  #4B79A1;
+       color: white;
+       width: 300px; 
+        font-size: 20px;
+       text-align: left; 
+       border-radius: 8px;
+       padding-left: 8px;
+    }
+
+    .num
+    {
+       width: 200px;
+       text-align: right; 
+       font-family: "Verdana";
+       padding-right: 8px;
+    }
+
+    tr
+    {
+        height: 45px;
+        font-size: 20px;
+    }
+
+
+    tr:nth-child(odd) 
+    { 
+        background-color: #4080bf;
+        /*
+        background: -webkit-linear-gradient(to right, #283E51, #4B79A1); 
+        background: linear-gradient(to right, #283E51, #4B79A1); 
+        */
+    }
+    tr:nth-child(even) 
+    { 
+        /*background-color:#4da6ff;*/
+        background-color:#00aaff;
+    }
+    tr:hover
+    { 
+        color: white;
+        background-color: #00b300;
+    }
+
+    .ibutton
+    {
+       position: absolute;
+       background-color: #4080bf; 
+       color: white;
+       border: 1px solid black;
+       text-decoration: none;
+       font-size: 15px;
+       cursor: pointer;
+       -webkit-transition-duration: 0.4s; /* Safari */
+       transition-duration: 0.4s;
+       width: 120px;
+       height: 30px;
+       border-radius: 12px;
+    }
+
+
+    .ibutton:hover {
+       box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    #back 
+    {
+       top: 10px;
+       left: 10px;
+    }
+
+    .user_details
+    {
+        visibility: hidden;
+    }
+
+</style>
+<script>
+
+  // takes the winners string:
+  // xjcarter.serevino,kityy69....None,None 
+  function mark_standing()
+  {
+      var current_user = document.getElementById("current_user").innerHTML;
+      var elems = document.getElementsByClassName('user_id');
+
+      for (i=0; i<elems.length; i++)
+      {
+          u = elems[i];
+          if (u.innerHTML == current_user )
+          {
+              u.style.backgroundColor= '#00b300';
+              u.style.fontSize = '20px';
+          }
+      }
+  }
+
+</script>
+
+</head>
+<body>
+   <div id="main_div">
+
+    <form id='exit_form' name='exit_form' action='/show_menu' method='post'>
+      <input id="back" class= 'ibutton' type="submit" name="back_button" value="BACK">
+      <input id="my_user" type="hidden" value={{ current_user }} name="current_user">
+    </form>
+
+    <div id='title'>
+        <p>STANDINGS</p>
+    </div>
+
+    <table id='standings'>
+      <tr id ='heading'>
+        <th id='head_user'>{{ header[0] }}</th>
+        <th class='round_header'>{{ header[1] }}</th>
+        <th class='round_header'>{{ header[2] }}</th>
+        <th class='round_header'>{{ header[3] }}</th>
+        <th class='round_header'>{{ header[4] }}</th>
+        <th class='round_header'>{{ header[5] }}</th>
+        <th class='round_header'>{{ header[6] }}</th>
+        <th class='round_header'>{{ header[7] }}</th>
+      </tr>
+         {% for item in data %}
+      <tr>
+        <!-- userid, rd1, rd2, ..,rd6,total -->
+        <td class='user_id'>{{ item[0] }}</td>
+        <td class='num'>{{ item[1] }}</td>
+        <td class='num'>{{ item[2] }}</td>
+        <td class='num'>{{ item[3] }}</td>
+        <td class='num'>{{ item[4] }}</td>
+        <td class='num'>{{ item[5] }}</td>
+        <td class='num'>{{ item[6] }}</td>
+        <td class='num'>{{ item[7] }}</td>
+      </tr>
+         {% endfor %}
+    </table>
+
+    </div>
+
+    <div id='passed_values'>
+  <!-- stores passed values from login -->
+  <!-- passed from SERVER to CLIENT -->
+        <p class="user_details" id="current_user">{{ current_user }}</p>
+    </div>
+
+
+<body>
+<script>
+    mark_standing();
+</script>
+</html>
