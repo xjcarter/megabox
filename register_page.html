@@ -1,0 +1,404 @@
+
+<html>
+<head>
+<style type="text/css">
+
+
+.main_div
+{
+    font-family: "Verdana";
+    position: relative;
+    top: 50px;
+    left: 50px;
+    border: 4px solid #ADD8E8;
+    border-radius: 15px;
+    /* width: 120%; */
+    width: 1050px;
+    height: 600px;
+
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#input_area
+{
+    position: absolute;
+    /*border: 5px solid #C0C0C0; */
+    /* background: #ADD8E8; */
+    width: 450px;
+    height: 450px;
+    text-align:left;
+    border-radius: 15px;
+    top: 75;
+    left: 305;
+}
+
+#bball
+{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+
+.ilabel
+{
+    font-size: 20px;
+    position: absolute;
+    color: white;
+    /* text-shadow: 2px 2px #606060; */
+    text-shadow: 1px 1px black;
+    text-align: left;
+    height: 30px;
+    width:100px;
+    left: 135px;
+}
+
+
+
+#name_lbl
+{
+    top: 120px;
+   left: 142px;
+}
+
+#email_lbl
+{
+      top: 158px;
+    left: 142px;
+}
+
+#userid_lbl
+{
+     top: 193px;
+}
+   
+
+#passwd_lbl
+{
+    top: 227px;
+     left: 105px;
+}
+
+#confirm_lbl
+{
+    top: 262px;
+   left: 123px;
+}
+
+
+
+.ifield
+{
+    font-size: 18px;
+    font-family: "Verdana";
+    position: absolute;
+    background-color: #c0c0c0;
+    border: 1px solid #396a93;
+    height: 30px;
+    width: 150px;
+    color: black;
+    left: 210px;
+}
+
+#fullname
+{
+    top: 140px; 
+}
+
+#email
+{
+  
+    top: 175px;
+}
+
+#userid
+{
+   
+    top: 210px;
+}
+
+#passwd
+{
+    top: 245px;
+}
+
+#confirm
+{
+    top: 280px;
+}
+
+.ibutton
+{
+   position: absolute;
+   background-color: #4080bf; 
+   color: white;
+   border: 1px solid black;
+   text-decoration: none;
+   font-size: 20px;
+   cursor: pointer;
+   -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
+   width: 160px;
+   height: 40px;
+   border-radius: 12px;
+}
+
+.ibutton:hover {
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#enter
+{
+   top: 340px;
+   left: 140px;
+}
+
+#back
+{
+   top: 390px;
+   left: 140px;
+}
+
+#court
+{
+  position: absolute;
+  width: 1030px;
+  height: 580px;
+  top:5px;
+  left:5px;
+  border:3px solid white;
+  border-radius: 12px;
+}
+#left_lane
+{
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  top:225px;
+  left:5px;
+  border:2px solid white;
+}
+#left_free
+{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top:225px;
+  left:180px;
+  border:2px solid white;
+  border-radius: 50%;
+}
+#left_arc
+{
+  position: absolute;
+  width: 850px;
+  height: 540px;
+  top:30px;
+  left:-500px;
+  border:2px solid white;
+  border-radius: 60%;
+}
+
+#right_lane
+{
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  top:225px;
+  right:5px;
+  border:2px solid white;
+}
+#right_free
+{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top:225px;
+  right:180px;
+  border:2px solid white;
+  border-radius: 50%;
+}
+#right_arc
+{
+  position: absolute;
+  width: 850px;
+  height: 540px;
+  top:30px;
+  right:-500px;
+  border:2px solid white;
+  border-radius: 60%;
+}
+
+
+
+#banner1
+{
+   /* display of chosend numbers */        
+   position: absolute;
+   font-family: "IMPACT";
+   font-size: 90px;
+ 
+   /*-ms-transform: rotate(-90deg); IE 9 */
+   /*-webkit-transform: rotate(-90deg); Safari 3-8 */
+   /* transform: rotate(-90deg);  */
+
+
+   /*top: 400px;*/
+   /*left: 200px;*/
+   /*color: #ADD8E8;*/
+   color: #538cc6;
+   /*height: 700px; */
+   /*width: 700px; */
+   top: 160px;
+   left: -75px;
+   /*text-shadow: 3px 3px #2251dd;*/
+   text-shadow: 2px 2px black;
+
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Safari 3-8 */
+    transform: rotate(-90deg);
+}
+
+#banner2
+{
+   /* display of chosend numbers */        
+   position: absolute;
+   font-family: "IMPACT";
+   font-size: 90px;
+ 
+   /*-ms-transform: rotate(-90deg); IE 9 */
+   /*-webkit-transform: rotate(-90deg); Safari 3-8 */
+   /* transform: rotate(-90deg);  */
+
+
+   /*top: 400px;*/
+   /*left: 200px;*/
+   /*color: #a3a3c2;*/
+   color: #6699cc;
+   top:  155px;
+   right: -110px;
+   /*text-shadow: 3px 3px #2251dd;*/
+   text-shadow: 2px 2px black;
+
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari 3-8 */
+    transform: rotate(90deg);
+
+}
+
+
+#info
+{
+    position:absolute;
+    top: 35px;
+    left: 355px;
+    text-align: center;
+    font-size: 18px;
+    color: white; 
+}
+
+</style>
+</head>
+
+<script>
+  //prevents enter key from submitting form
+  function stopRKey(evt) 
+  { 
+      var evt = (evt) ? evt : ((event) ? event : null); 
+      var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+      if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+  } 
+  document.onkeypress = stopRKey;
+
+  //error and info message block
+  function show_message()
+  {
+      //lines are divided by | - currently only sending 2 line messages
+      var msg = document.getElementById("message").innerHTML;
+      if (msg.length == 0 || msg == undefined)
+      {
+        document.getElementById("info").style.visibility = "hidden" ;
+        document.getElementById("message").style.visibility = "hidden" ;
+      }
+      else
+      {
+        var messages = msg.split("|");
+        document.getElementById("message").innerHTML = messages[0] + "<br>" + messages[1];
+        document.getElementById("info").style.visibility = "visible" ;
+        document.getElementById("message").style.visibility = "visible" ;
+      }
+
+  }
+</script>
+
+<body>
+<div class="main_div">
+
+    <div id= 'court'>
+    </div>
+    <div id= 'left_lane'>
+    </div>
+    <div id= 'left_free'>
+    </div>
+    <div id= 'left_arc'>
+    </div>
+    <div id= 'right_lane'>
+    </div>
+    <div id= 'right_free'>
+    </div>
+    <div id= 'right_arc'>
+    </div>
+
+    <div id="input_area">
+
+        <!--img id= "bball" src="bigger_ball.png" alt="big ball" -->
+        <div class='ilabel' id="name_lbl">
+            <p>Name</p>
+        </div>
+        <div class='ilabel' id="email_lbl">
+            <p>Email</p>
+        </div>
+        <div class='ilabel' id="userid_lbl">
+            <p>UserId</p>
+        </div>
+        <div class='ilabel' id="passwd_lbl">
+            <p>Password</p>
+        </div>
+        <div class= "ilabel" id="confirm_lbl">
+            <p>Confirm</p>
+        </div>
+
+        <form id='register_form' action="/register" method='post'>
+            <input class="ifield" id="fullname", type="text" name="fullname" value='{{ iname }}'>
+            <input class="ifield" id="userid", type="text" name="userid" value='{{ iuser_id }}'>
+            <input class="ifield" id="email", type="text" name="email" value='{{ iemail }}'>
+            <input class="ifield" id="passwd", type="password" name="passwd" value=''>
+            <input class="ifield" id="confirm", type="password" name="confirm" value=''>
+            <input class="ibutton" id="enter", type="submit" value='REGISTER'>
+        </form>
+         <form id="back_from" action='/show_login' method='get'>
+            <input class="ibutton" id="back", type="submit" value='<< BACK'>
+        </form>
+    </div>
+
+    <div id="banner1">
+      <p>MARCH</p>
+    </div>
+    <div id="banner2">
+      <p>MADNESS</p>
+    </div>
+    <div id="info">
+      <p id="message">{{ msg }}</p>
+    </div>
+
+
+</div>
+</body>
+
+<script>
+  show_message();
+</script>
+
+</html>

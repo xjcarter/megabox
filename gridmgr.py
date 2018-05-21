@@ -478,27 +478,33 @@ def validated(name,email,user_id,passwd,confirm,players_df):
     name_regex = re.compile(r"^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)$")
     userid_regex = re.compile(r"([a-zA-Z0-9_]+$)")
 
+    inputs = dict(name=name,email=email,user_id=user_id)
+
     if not name_regex.match(name):
-        return r"Invalid Name.|Please Enter First and Last Name"
+        inputs['name'] = ''
+        return r"Invalid Name.|Please Enter First and Last Name", inputs
     if not email_regex.match(email):
-        return r"Invalid Email.|Please Valid Email Address"
+        inputs['email'] = ''
+        return r"Invalid Email.|Please Valid Email Address", inputs
     if not userid_regex.match(user_id):
-        return r"Invalid UserId.|Userid Contains Letters and Numbers Only"
+        inputs['user_id'] = ''
+        return r"Invalid UserId.|Userid Contains Letters and Numbers Only", inputs
     if len(user_id) < 6:
-        return r"Invalid UserId.|Userid Must Be At Least 6 Characters."
+        inputs['user_id'] = ''
+        return r"Invalid UserId.|Userid Must Be At Least 6 Characters.", inputs
     if  "," in passwd:
-        return r"Invalid Password.|Password Contains Commas"
+        return r"Invalid Password.|Password Contains Commas", inputs
     if len(passwd) < 6:
-        return r"Invalid Password.|Password Must Be At Least 6 Characters."
+        return r"Invalid Password.|Password Must Be At Least 6 Characters.", inputs
     if passwd != confirm:
-        return r"Invalid Password.|Password and Confirm Do Not Match."
+        return r"Invalid Password.|Password and Confirm Do Not Match.", inputs
 
     ##userids = [ x.lower() for x in players_df['user_id'].tolist() ]
     userids = [ x['user_id'].lower() for x in players_df ]
     if user_id.lower() in userids:
-        return r'Invalid UserId.|'+user_id+ r' Has Already Been Registered'
+        return r'Invalid UserId.|'+user_id+ r' Has Already Been Registered', inputs
 
-    return None
+    return None, inputs
 
 
 def email_me(new_user):
@@ -524,7 +530,10 @@ def email_me(new_user):
 @app.route("/show_register")
 def show_register(*args,**kwargs):
     info = r'Provide Name and Email Address|Create a UserId and Password.'
-    return render_template("register_page.html",msg=info)
+    return render_template("register_page.html",msg=info,
+                                                iname='',
+                                                iemail='',
+                                                iuser_id='')
 
 def get_pool_id():
     ## generates pool_id fror new players
@@ -543,7 +552,7 @@ def register(*args,**kwargs):
     confirm= request.form['confirm']
     # players_df = pd.read_csv('players.csv')
     header, players_df = read_csv('players.csv')
-    error = validated(name,email,user_id,passwd,confirm,players_df)
+    error, inputs = validated(name,email,user_id,passwd,confirm,players_df)
     if error == None:
         new_user=dict(user_id=user_id,
                       name=name,
@@ -569,7 +578,11 @@ def register(*args,**kwargs):
         ## take them back to login page
         return render_template('login_page.html',msg="")
     else:
-        return render_template('register_page.html', msg=error)
+        return render_template('register_page.html', msg=error,
+                                            iname=inputs['name'],
+                                            iemail=inputs['email'],
+                                            iuser_id=inputs['user_id'])
+
 
 
 
