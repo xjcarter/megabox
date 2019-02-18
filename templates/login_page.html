@@ -140,6 +140,7 @@
 #pool_lbl
 {
     top: 228px;
+    visibility: hidden;
 }
 
 
@@ -170,6 +171,7 @@
 #poolid
 {
     top: 245px;
+    visibility: hidden;
 }
 
 
@@ -340,7 +342,7 @@
         <form id='login_form' action='/login' method='post'>
             <input class="ifield" id="userid", type="text" name='userid' value=''>
             <input class="ifield" id="passwd", type="password" name='passwd' value=''>
-            <input class="ifield" id="poolid", type="text" name='poolid' value=''>
+            <!--input class="ifield" id="poolid", type="text" name='poolid' value=''-->
             <input class="ibutton" id="enter", type="submit" value='LOGIN'>
         </form>
         <form id="reggie" action='/show_register' method='get'>

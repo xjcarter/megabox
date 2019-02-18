@@ -9,19 +9,17 @@ app = Flask(__name__)
 app.debug = True
 
 ## flag the grid as frozen - disable all buttons
-## frozen = 0
+frozen = 0
 
 grid_df = None
 available = []
-##visitors = [None] * 10
-##home = [None] * 10
-##try:
-## grab the grid_numbers if the file exists
-visitors=[8, 1, 4, 0, 6, 9, 5, 3, 2, 7]
-home=[5, 7, 4, 9, 1, 0, 2, 8, 3, 6]
-frozen = 1
-##except:
-#pass
+visitors = [None] * 10
+home = [None] * 10
+
+if frozen != 0:
+    # this are the randomly generated intersection points of home/visitor (favorite/underdog)
+    visitors=[8, 1, 4, 0, 6, 9, 5, 3, 2, 7]
+    home=[5, 7, 4, 9, 1, 0, 2, 8, 3, 6]
 
 
 
@@ -41,9 +39,10 @@ def read_csv(filename):
 
     return header, data
 
-def to_csv(data,filename):
-    if len(data) > 0:
+def to_csv(data,filename,ordered=None):
+    if data is not None and len(data) > 0:
         header = data[0].keys()
+        if ordered is not None: header=ordered
         with open(filename,'w') as f:
             f.write(",".join(header) + "\n")
             for d in data:
@@ -51,22 +50,23 @@ def to_csv(data,filename):
                 f.write(",".join(line) + "\n")
 
 
-
+# map out the 100 points on the grid: home digit, visitor digit
 if frozen:
     _ , grid_df = read_csv('grid.csv')
     vcol, hcol = [], []
     for i in range(10):
-        vcol.extend([ visitors[i] ]*10)
+        # make a block array of the same is visitor digit[i]
+        vcol.extend([ visitors[i] ]*10) 
+        # duplicate all 10 home digits per each visitior digit[i]
         hcol.extend(home)
-    ## grid_df['home_digit'] = pd.Series(hcol)
-    ## grid_df['vstr_digit'] = pd.Series(vcol)
+
     for j in range(len(hcol)):
         grid_df[j]['home_digit'] = hcol[j]
         grid_df[j]['vstr_digit'] = vcol[j]
 
 
-    ## grid_df.to_csv('grid.csv',index=False)
-    to_csv(grid_df,'grid.csv')
+    ## box_number, user_id, home_digit, vstr_digit
+    to_csv(grid_df,'grid.csv',ordered=['box_number','user_id','home_digit','vstr_digit'])
 
 
 
@@ -95,8 +95,8 @@ def show_grid(*args,**kwargs):
     global home
 
 
-
     current_user = request.form['current_user']
+
 
     ## create lock file
     if not os.path.exists('grid.lock'):
@@ -108,11 +108,12 @@ def show_grid(*args,**kwargs):
 
         ## get number of boxes allotted
         _ , pdf = read_csv('players.csv')
-        ## select_limit = int(pdf[pdf['user_id'] == current_user ]['num_of_boxes'])
-        select_limit = 1
+        ## select_limit = int(pdf[pdf['user_id'] == current_user ]['box_limit'])
+        ## hard coded select limit at 10, this is default in register as well
+        select_limit = 10
         for d in pdf:
             if d['user_id'] == current_user:
-                select_limit = int(d['num_of_boxes'])
+                select_limit = int(d['box_limit'])
 
         print('select limit=',select_limit)
 
@@ -189,7 +190,8 @@ def save_submit(*args,**kwargs):
                 #grid_df.loc[i-1,'user_id'] = None
                 grid_df[i-1]['user_id'] = None
 
-            to_csv(grid_df,'grid.csv')
+            ## box_number, user_id, home_digit, vstr_digit
+            to_csv(grid_df,'grid.csv',ordered=['box_number','user_id','home_digit','vstr_digit'])
 
         if os.path.exists('grid.lock'):
             os.remove('grid.lock')
@@ -281,8 +283,8 @@ def update_standings():
                 if total > 0 and ((v,h) in grid_map):
                     grid_map[(v,h)]['wins'][rnd - 1] += 1
 
-    #purse = [15,30,125,250,1000,5000]
-    purse = [1,2,4,8,16,32]
+    purse = [50,100,200,400,800,2000]
+    #purse = [1,2,4,8,16,32]
 
     ## collect all winnings per user_id
     standings = []
@@ -308,7 +310,7 @@ def update_standings():
     ##sdf = pd.DataFrame(columns=header,data=standings)
     ##sdf.to_csv('standings.csv',index=False)
     sdf = [ dict(zip(header,x)) for x in standings]
-    to_csv(sdf,'standings.csv')
+    to_csv(sdf,'standings.csv',ordered=header)
 
     ## caps for display
     header = [x.upper() for x in header]
@@ -434,12 +436,12 @@ def show_scores(*args,**kwargs):
 @app.route("/login", methods=['POST'])
 def login(*args,**kwargs):
 
-    ##user_id,name,email,num_of_boxes,passwd,pool_id
+    ##user_id,name,email,box_limit,passwd,pool_id
     _ , players_df = read_csv('players.csv')
     user_id = request.form['userid']
     passwd = request.form['passwd']
-    pool_id = request.form['poolid']
-    pool_id = pool_id.strip()
+    #pool_id = request.form['poolid']
+    #pool_id = pool_id.strip()
 
     # if user_id in players_df['user_id'].tolist():
     if user_id in [x['user_id'] for x in players_df ]:
@@ -448,12 +450,13 @@ def login(*args,**kwargs):
         #valid_pwd = (passwd in pdf['passwd'].tolist())
         valid_pwd = (passwd in [ x['passwd'] for x in pdf ])
         # valid_pool = (pool_id in pdf['pool_id'].tolist())
-        valid_pool = (pool_id in [ x['pool_id'] for x in pdf ])
-        if valid_pwd and valid_pool and pool_id != '':
+        #if valid_pwd and valid_pool and pool_id != '':
+        if valid_pwd:
             ## set up user
             return render_template('menu_page.html',current_user=user_id, msg="")
         else:
-            error = r'Invalid Login.|Please Check Password and PoolId.'
+            #error = r'Invalid Login.|Please Check Password and PoolId.'
+            error = r'Invalid Login.|Please Check Password.'
             return render_template('login_page.html',msg=error)
     else:
         error = r'Invalid UserId.|<' + user_id + r'>  Has Not Been Registered'
@@ -508,23 +511,148 @@ def validated(name,email,user_id,passwd,confirm,players_df):
 
 
 def email_me(new_user):
+
+    rules = """
+    <html>
+
+    <head>
+    </head>
+
+    <body>
+    <div style="font-family: Verdana;">
+    <br>
+    <span style="font-size:18px; color:#000000;">Welcome <strong>{name} ['{user_id}']</strong>, to the MegaBox March Madness Pool!</span>
+    <br>
+    <br>
+    <div class="rules" style="border: 2px solid; background-color: #f2f2f2;padding:10px;width:1000px; font-family: Lucida Sans; font-size:16px; color:#000000;">
+    <div class="rule_header" style="position:absolute; top:90px; left: 350px; font-size:18px; color:#000000;"><strong>Rules of the Game</strong></div>
+    <ol>
+    <br>
+    <li>The game works like a standard "Football Box" Pool. &nbsp;Each player buys a box (Entry Fee = 100 per box) in a 10-by-10 grid.</li><br>
+    <li>Each box in the grid represents the intersection of the last digits of the final score for each tournment game.</li><br>
+    <li>The digits across the TOP of the grid represent the last digit in the final score from THE FAVORITE (The Higher Team Seed).</li><br>
+    <li>The digits across the SIDE of the grid represent the last digit in the final score from THE UNDERDOG (The Lower Team Seed).</li><br>
+    <li>The digits for the game grid will be drawn the Wednesday evening prior to start of the tournament.</li><br>
+    <li>Your box numbers apply for EVERY game in the tournament.<br><br><strong>Whenever ANY tournament game's final score lands on your box - YOU WIN!</strong></li><br>
+    </ol>
+   
+    
+    <div>
+    <br>
+    <span style="font-family: Lucida Sans; font-size:18px; color:#000000;"><strong>Payouts Per Game --- By Round</strong></span> 
+    <br> <br>
+    <table width="400" border="1" cellpadding="6" cellspacing="0">
+      <tr>
+        <td width="300" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>Round 1 (32 games)</strong>
+        </td>
+        <td width="100" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            50 pts
+        </td>
+      </tr>
+      <tr>
+        <td width="300" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>Round 2 (16 games)</strong>
+        </td>
+        <td width="100" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            100 pts
+        </td>
+      </tr>
+      <tr>
+        <td width="300" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>Round 3 (8 games)</strong>
+        </td>
+        <td width="100" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            200 pts
+        </td>
+      </tr>
+      <tr>
+        <td width="300" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>Round 4 (4 games)</strong>
+        </td>
+        <td width="100" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            400 pts
+        </td>
+      </tr>
+      <tr>
+        <td width="300" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>Round 5 (2 games)</strong>
+        </td>
+        <td width="100" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            800 pts
+        </td>
+      </tr>
+      <tr>
+        <td width="300" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>Round 6 (NCAA Final)</strong>
+        </td>
+        <td width="100" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            2000 pts
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    </div>
+
+    </div>
+    <br>
+    <span style="font-size:18px; color:#000000;">Go Choose Your Box At The Weblink Below!<br>Good Luck!</span>
+    <br>
+    <br>
+    <a href="http://www.megaboxhoops.com/" style="font-size: 20px; text-decoration: none">March Madness MegaBox Pool</a>
+    </div>
+
+    </body>
+    </html>
+    """
+
+    rules = rules.format(name=new_user['name'],user_id=new_user['user_id'])
+    subject = "Welcome to The MegaBox March Madness Pool"
+    mail_client.mail(new_user['email'],subject,text='',html=rules)
+
     ## email me about the new user
-    subject = 'MegaBox: New Playe = %s' % new_user['name']
-    msg = "New Player\n-------------------------------------------\n"
-    msg += "Name:     %s\n" % new_user['name']
-    msg += "User_Id:  %s\n" % new_user['user_id']
-    msg += "Email:    %s\n" % new_user['email']
-    msg += "Pool_Id:  %s\n" % new_user['pool_id']
+    subject = 'MegaBox March Madness Pool: New Player: %s' % new_user['name']
+    player_table = """
+    <html>
+    <head>
+    </head>
+    <body>
+    <br>
+    <span style="font-family: Lucida Sans; font-size:18px; color:#000000;"><strong>NEW PLAYER</strong></span> 
+    <br> <br>
+    <table width="400" border="1" cellpadding="6" cellspacing="0">
+      <tr>
+        <td width="100" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>Name</strong>
+        </td>
+        <td width="300" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            {name}
+        </td>
+      </tr>
+      <tr>
+        <td width="100" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>User_Id</strong>
+        </td>
+        <td width="300" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            {user_id}
+        </td>
+      </tr>
+      <tr>
+        <td width="100" height="30" style="font-family: Lucida Sans; font-size: 16px; color: #000000;">
+            <strong>Email</strong>
+        </td>
+        <td width="300" height="30" style="font-family:  Courier New; font-size: 16px; color: #000000;">
+            {email}
+        </td>
+      </tr>
+    </table>
+    </body>
+    </html>
+    """
 
-    mail_client.mail("xjcarter@gmail.com",subject,msg)
-
-    ## welcome the new user
-    welcome = "Welcome %s (%s), to the MegaBox Pool!\n" % (new_user['name'],new_user['user_id'])
-    welcome += "Your Pool_Id for site access will be emailed to you shortly!\n"
-    welcome += "\n\nThanks,\nThe Commissioner\n"
-
-    subject = 'Welcome to the MegaBox Pool!'
-    mail_client.mail(new_user['email'],subject,welcome)
+    player_table = player_table.format(name=new_user['name'],user_id=new_user['user_id'],email=new_user['email'])
+    mail_client.mail("megaboxhoops@gmail.com",subject,text='',html=player_table)
 
 
 @app.route("/show_register")
@@ -540,7 +668,7 @@ def get_pool_id():
     ## this is the private key you email them so the can get into
     ## the site
     ## with multiple pools - this will be a handle pool assignment
-    return 'tonys'
+    return 'megabox'
     
 
 @app.route("/register", methods=['POST'])
@@ -557,26 +685,31 @@ def register(*args,**kwargs):
         new_user=dict(user_id=user_id,
                       name=name,
                       email=email,
-                      num_of_boxes=1,
+                      box_limit=10,
+                      amount_paid=0,
                       passwd=passwd,
                       pool_id=get_pool_id())
 
-        ## players_df = pd.concat([players_df,pd.DataFrame([new_user])])
-        ## players_df.index = list(range(len(players_df)))
-        ## players_df.to_csv('players.csv',index=False)
+        ## NOTE: box_limit is the fixed limit on how many boxes a player can select
+        ## i.e. a registered players can pick up to 10 boxes.
+
+        ## NOTE: pool_id is presently disabled- it allows for delination for multiple
+        ## pools - all functionality for it is disabled or commented out presently.
 
         if len(players_df) == 0:
             players_df = [new_user]
         else:
             players_df.append(new_user)
 
-        to_csv(players_df,'players.csv')
+        header = 'email user_id name passwd pool_id box_limit amount_paid'.split()
+        to_csv(players_df,'players.csv',ordered=header)
 
 
         email_me(new_user)
 
-        ## take them back to login page
-        return render_template('login_page.html',msg="")
+        ## take them back to login page, and let them know they are registered
+        thanks="Thanks %s [%s]!|You're Registered." % (inputs['name'],inputs['user_id'])
+        return render_template('login_page.html',msg=thanks)
     else:
         return render_template('register_page.html', msg=error,
                                             iname=inputs['name'],

@@ -48,7 +48,6 @@
       }
   }
 
-
   //toggle selected boxes on/off
   function toggle(obj) 
   {
@@ -63,19 +62,12 @@
             obj.style.color = '#3366ff';
             remove_pick(obj.name)
           }
-          else 
+          else if ( cur_state == box_open && totl_selected < select_limit )
           {
-              if ( cur_state == box_open && totl_selected < select_limit )
-              {
-                obj.style.backgroundColor = '#00e600';
-                obj.style.color = '#000000';
-                obj.setAttribute('box_selected',1);
-                add_pick(obj.name)
-              }
-              else
-              {
-                document.getElementById("limit_box").style.visibility = 'visible';
-              }
+            obj.style.backgroundColor = '#00e600';
+            obj.style.color = '#000000';
+            obj.setAttribute('box_selected',1);
+            add_pick(obj.name)
           }
       }
       else if ( totl_selected < select_limit )
@@ -204,11 +196,6 @@
       document.getElementById("info").style.visibility = 'hidden'; 
   }
 
-  function vanish_limit()
-  { 
-      document.getElementById("limit_box").style.visibility = 'hidden'; 
-  }
-
 </script>
 
 <body>
@@ -253,14 +240,6 @@
       <br>Light Blue: &nbsp; Available
       <br>Green:  &nbsp;  &nbsp;  &nbsp; &nbsp;Your Pick 
       <br>Dark Blue:  &nbsp;  &nbsp;Unavailable</p>
-  </div>
-
-</div>
-
-<div>
-
-  <div id="limit_box" onclick="vanish_limit()">
-    <p><br><br>You Reached Your Box Selection Limit.<br>Maximum Boxes Allowed = 10.</p>
   </div>
 
 </div>

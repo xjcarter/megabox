@@ -33,6 +33,29 @@ h2              { font-size: 1.2em; }
     visibility: hidden;
 }
 
+#limit_box
+{
+    position: absolute;
+    height: 200px;
+    width: 520px;
+    background-color: #a3c2c2;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: black;
+    top: 300px;
+    left: 350px;
+    border: 3px solid black;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: "Rockwell";
+    font-size: 20px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    visibility: hidden;
+}
+
 #other
 {
    background: #4B79A1;  /* fallback for old browsers */
@@ -115,8 +138,9 @@ h2              { font-size: 1.2em; }
     font-size: 40px;
     font-family: "Rockwell";
     border: none;
-     background-color: #4080bf; 
-      border: 1px solid black;
+    padding-top: 5px;
+    background-color: #4080bf; 
+    border: 1px solid black;
     border-radius: 12px;
 }
 
@@ -140,12 +164,12 @@ h2              { font-size: 1.2em; }
 
 #title_home
 {
-    font-size: 50px;
-    font-family: "Rockwell";
+    font-size: 30px;
+    font-family: "Verdana";
     position: absolute;
-    color: white;
-    top: 30px;
-    left: 560px;
+    color: #99ccff;
+    top: -25px;
+    left: 250px;
     /* text-shadow: 2px 2px black */
 
 }
@@ -153,16 +177,16 @@ h2              { font-size: 1.2em; }
 
 #title_vstr
 {
-    font-size: 50px;
-    font-family: "Rockwell";
+    font-size: 35px;
+    font-family: "Verdana";
     position: absolute;
     /* color: #538cc6; */
-    color: white; 
+    color: #99ccff;
     -ms-transform: rotate(90deg); /* IE 9 */
     -webkit-transform: rotate(90deg); /* Safari 3-8 */
     transform: rotate(90deg);
-    top: 560px;
-    left: 15px;
+    top: 460px;
+    left: -285px;
 
 }
 
